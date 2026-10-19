@@ -1,9 +1,12 @@
+/** Years Sindy has been painting dogs. Change it here and every page, guide and structured-data block updates. */
+export const EXPERIENCE_YEARS = 25;
+
 export const SITE = {
   name: "Sindy’s Dog Art",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://sindysdogart.com",
   tagline: "Every good dog deserves a masterpiece.",
   description:
-    "Hand-painted custom oil portraits of dogs by Sindy, a UK artist with over 20 years of experience. Memorial portraits and gift portraits, painted from your photos and shipped across the UK.",
+    `Hand-painted custom oil portraits of dogs by Sindy, a UK artist with over ${EXPERIENCE_YEARS} years of experience. Memorial portraits and gift portraits, painted from your photos and shipped across the UK.`,
 } as const;
 
 export const NAV_LINKS = [

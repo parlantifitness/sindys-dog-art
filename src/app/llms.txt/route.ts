@@ -1,13 +1,13 @@
 import { ALL_FAQS } from "@/lib/faq";
 import { KEY_FACTS } from "@/lib/policies";
 import { GUIDES } from "@/lib/guides";
-import { NAV_LINKS, SITE } from "@/lib/site";
+import { EXPERIENCE_YEARS, NAV_LINKS, SITE } from "@/lib/site";
 
 const PAGE_NOTES: Record<string, string> = {
   "/gallery": "Finished oil portraits: memorial, gift and multi-pet.",
   "/how-it-works": "The commission process from enquiry to UK delivery.",
   "/testimonials": "What customers say about their portraits.",
-  "/about": "About Sindy, a UK artist painting dogs for over 20 years.",
+  "/about": `About Sindy, a UK artist painting dogs for over ${EXPERIENCE_YEARS} years.`,
   "/guides": "Guides to commissioning, photos, memorial and gift ideas, and pricing.",
   "/faq": "Answers on pricing, turnaround, revisions, refunds and shipping.",
 };

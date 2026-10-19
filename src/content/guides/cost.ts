@@ -10,6 +10,7 @@ import {
   SHIPPING,
   priceSummary,
 } from "@/lib/policies";
+import { EXPERIENCE_YEARS } from "@/lib/site";
 import { PUBLISHED, money } from "./shared";
 
 const A4 = SIZES.find((s) => s.id === "a4")!;
@@ -105,7 +106,7 @@ export const guide: Guide = {
       title: "What you are paying for",
       blocks: [
         p(
-          "A custom portrait is a one-of-a-kind painting. Sindy, a UK artist with over 20 years of experience painting dogs, paints each one by hand in oils from your photos. You approve a sketch first, with two rounds of revisions, so you can be confident before the painting begins."
+          `A custom portrait is a one-of-a-kind painting. Sindy, a UK artist with over ${EXPERIENCE_YEARS} years of experience painting dogs, paints each one by hand in oils from your photos. You approve a sketch first, with two rounds of revisions, so you can be confident before the painting begins.`
         ),
         p(
           "Unlike a printed or mass-produced gift, no two hand-painted portraits are the same. That is what makes it something to keep, whether it is a memorial or a gift."

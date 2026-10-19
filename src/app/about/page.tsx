@@ -7,12 +7,12 @@ import { DOG_PHOTOS, SINDY_PHOTO } from "@/lib/about";
 import { BreadcrumbJsonLd, JsonLdGraph } from "@/components/JsonLd";
 import { ORG_ID, PERSON_ID, abs } from "@/lib/schema";
 import { pageMetadata } from "@/lib/seo";
-import { COMMISSION_HREF, COMMISSION_LABEL } from "@/lib/site";
+import { COMMISSION_HREF, COMMISSION_LABEL, EXPERIENCE_YEARS } from "@/lib/site";
 
 export const metadata = pageMetadata({
   title: "About Sindy",
   description:
-    "Meet Sindy, a UK artist who has been painting dogs for over 20 years, creating hand-painted oil portraits for dog lovers across the country.",
+    `Meet Sindy, a UK artist who has been painting dogs for over ${EXPERIENCE_YEARS} years, creating hand-painted oil portraits for dog lovers across the country.`,
   path: "/about",
 });
 
@@ -21,8 +21,8 @@ export default function AboutPage() {
     <>
       <PageHeader eyebrow="About" title="Meet Sindy">
         <p>
-          A lifelong dog lover who has been painting dogs in oils for over 20
-          years.
+          A lifelong dog lover who has been painting dogs in oils for over{" "}
+          {EXPERIENCE_YEARS} years.
         </p>
       </PageHeader>
 
@@ -36,7 +36,7 @@ export default function AboutPage() {
           priority
         />
         <div className="space-y-5 text-ink-soft">
-          <h2 className="text-4xl text-ink">Painting dogs for over 20 years</h2>
+          <h2 className="text-4xl text-ink">Painting dogs for over {EXPERIENCE_YEARS} years</h2>
           <p>
             I have always loved to paint. As a child I was always artistic and
             loved creating paintings, even at school. It was only after having
@@ -48,8 +48,8 @@ export default function AboutPage() {
             I have always been a dog lover. I started by painting my own pets,
             and then painted for family members and friends, who recommended me
             to their friends and families. It all started from there. Now I
-            paint animals regularly, and I have been painting dogs for over 20
-            years.
+            paint animals regularly, and I have been painting dogs for over{" "}
+            {EXPERIENCE_YEARS} years.
           </p>
 
           <h3 className="pt-3 font-display text-3xl text-ink">

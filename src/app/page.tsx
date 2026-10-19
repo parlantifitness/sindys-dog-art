@@ -6,12 +6,12 @@ import { Container } from "@/components/Container";
 import { PricingGrid } from "@/components/PricingTable";
 import { DOG_PHOTOS, SINDY_PHOTO } from "@/lib/about";
 import { getFeaturedItems, type PortraitCategory } from "@/lib/gallery";
-import { COMMISSION_HREF, COMMISSION_LABEL, SITE } from "@/lib/site";
+import { COMMISSION_HREF, COMMISSION_LABEL, EXPERIENCE_YEARS, SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: { absolute: `${SITE.name} | Hand-Painted Oil Dog Portraits, UK` },
   description:
-    "Hand-painted oil dog portraits by Sindy, a UK artist with over 20 years’ experience. Memorial and gift portraits from your photos, shipped across the UK.",
+    `Hand-painted oil dog portraits by Sindy, a UK artist with over ${EXPERIENCE_YEARS} years’ experience. Memorial and gift portraits from your photos, shipped across the UK.`,
   alternates: { canonical: "/" },
 };
 
@@ -55,7 +55,7 @@ export default function HomePage() {
           </h1>
           <p className="mx-auto mt-6 max-w-xl text-lg text-ink-soft">
             Custom oil portraits of dogs, hand-painted from your photos by an
-            artist with over 20 years of experience. Painted to remember them
+            artist with over {EXPERIENCE_YEARS} years of experience. Painted to remember them
             by, or to give to someone who adores theirs. Shipped anywhere in
             the UK.
           </p>
@@ -186,7 +186,7 @@ export default function HomePage() {
               Painted by someone who adores dogs
             </h2>
             <p className="mt-4 max-w-xl text-ink-soft">
-              Sindy has been painting dogs for over 20 years, and has three of
+              Sindy has been painting dogs for over {EXPERIENCE_YEARS} years, and has three of
               her own: Lulu, Millie and Nellie.
             </p>
             <ul className="mt-6 grid max-w-md grid-cols-3 gap-3">

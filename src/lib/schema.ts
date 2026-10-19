@@ -1,7 +1,7 @@
 import type { GalleryItem } from "./gallery";
 import { HIGHEST_PRICE, LOWEST_PRICE } from "./policies";
 import { SIZES } from "./pricing";
-import { SITE } from "./site";
+import { EXPERIENCE_YEARS, SITE } from "./site";
 
 export const ORG_ID = `${SITE.url}/#organization`;
 export const PERSON_ID = `${SITE.url}/#sindy`;
@@ -47,7 +47,7 @@ export function personSchema() {
     name: "Sindy",
     jobTitle: "Artist",
     description:
-      "UK-based artist who has been painting dogs in oils for over 20 years.",
+      `UK-based artist who has been painting dogs in oils for over ${EXPERIENCE_YEARS} years.`,
     image: abs("/about/sindy.jpg"),
     url: abs("/about"),
     worksFor: { "@id": ORG_ID },

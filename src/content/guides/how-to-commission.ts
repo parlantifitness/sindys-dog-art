@@ -14,6 +14,7 @@ import {
   TURNAROUND_TEXT,
 } from "@/lib/policies";
 import { PROCESS_STEPS } from "@/lib/process";
+import { EXPERIENCE_YEARS } from "@/lib/site";
 import { formatPrice } from "@/lib/pricing";
 import { PUBLISHED, sizeBullets } from "./shared";
 
@@ -41,7 +42,7 @@ export const guide: Guide = {
       title: "What a commissioned dog portrait involves",
       blocks: [
         p(
-          "A commissioned dog portrait is a one-of-a-kind painting made specially for you. Sindy, a UK artist who has been painting dogs for over 20 years, paints each portrait by hand in oils from the photos you send. Your dog does not need to sit for her, and she works with customers across the UK."
+          `A commissioned dog portrait is a one-of-a-kind painting made specially for you. Sindy, a UK artist who has been painting dogs for over ${EXPERIENCE_YEARS} years, paints each portrait by hand in oils from the photos you send. Your dog does not need to sit for her, and she works with customers across the UK.`
         ),
         p(
           "People usually commission a portrait for one of two reasons. A **memorial portrait** keeps a much-loved dog close after they have passed. A **gift portrait** marks a birthday, Christmas, an anniversary or another occasion. You can also ask for a **multi-pet portrait** with two or more companions in one painting. For ideas, see [memorial oil painting ideas for a dog](/guides/dog-memorial-portrait-ideas) and [dog portrait gift ideas](/guides/dog-portrait-gift-ideas)."
