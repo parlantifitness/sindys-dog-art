@@ -46,7 +46,7 @@ export function SiteFooter() {
         </div>
       </Container>
       <Container className="mt-12 border-t border-line pt-6 text-center text-sm text-ink-soft">
-        <p>© {SITE.name}. All paintings and images are the property of the artist.</p>
+        <p>© {process.env.NEXT_PUBLIC_BUILD_YEAR} {SITE.name}. All paintings and images are the property of the artist.</p>
       </Container>
     </footer>
   );
