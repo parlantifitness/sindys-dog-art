@@ -54,6 +54,17 @@ NEXT_PUBLIC_SITE_URL=https://sindysdogart.com
 
 Without them, enquiries are logged to the server console in development and rejected with a 503 in production. Photos are shrunk in the browser (max 4, 4 MB combined) so the upload fits typical serverless request limits.
 
+## Keeping the site consistent
+
+Prices live in `src/lib/pricing.ts`. Every other business rule (payment split, revisions, refunds, shipping, turnaround, the expedited surcharge) lives in `src/lib/policies.ts`, and the FAQ, How It Works, Terms, commission form, structured data and `llms.txt` all read from it. **Never retype a price or policy in a page or guide; import it.** To change the typical turnaround, edit `TURNAROUND_ESTIMATE` (currently a placeholder estimate to confirm with Sindy).
+
+## Search and AI visibility
+
+- Every page sets a title, description, canonical URL and a 1200×630 share image (`public/og/`). Regenerate those images, and `public/logo.png`, with `scripts/generate-og-images.py` (see the script header for the fonts it needs).
+- Structured data (Organization, WebSite, Person, FAQPage, HowTo, Service, ImageGallery, BreadcrumbList) is built in `src/lib/schema.ts`.
+- `/llms.txt` summarises the business for AI assistants. `robots.ts` lets AI search/answer bots in, and keeps AI-training crawlers away from the artwork folders.
+- `/privacy` and `/terms` are plain-English drafts; have them checked before relying on them.
+
 ## Content still to supply
 
 Search the codebase for `PlaceholderNote` to find copy Sindy needs to write:

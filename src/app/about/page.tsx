@@ -4,6 +4,8 @@ import { Container } from "@/components/Container";
 import { PageHeader } from "@/components/PageHeader";
 import { PlaceholderNote } from "@/components/PlaceholderNote";
 import { DOG_PHOTOS, SINDY_PHOTO } from "@/lib/about";
+import { BreadcrumbJsonLd, JsonLdGraph } from "@/components/JsonLd";
+import { ORG_ID, PERSON_ID, abs } from "@/lib/schema";
 import { pageMetadata } from "@/lib/seo";
 import { COMMISSION_HREF, COMMISSION_LABEL } from "@/lib/site";
 
@@ -82,6 +84,18 @@ export default function AboutPage() {
           </ul>
         </Container>
       </section>
+      <JsonLdGraph
+        nodes={[
+          {
+            "@type": "AboutPage",
+            url: abs("/about"),
+            name: "About Sindy",
+            mainEntity: { "@id": PERSON_ID },
+            about: { "@id": ORG_ID },
+          },
+        ]}
+      />
+      <BreadcrumbJsonLd trail={[{ name: "About", path: "/about" }]} />
     </>
   );
 }

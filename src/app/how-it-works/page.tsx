@@ -1,10 +1,20 @@
 import { ArtImage } from "@/components/ArtImage";
 import { ButtonLink } from "@/components/ButtonLink";
+import { BreadcrumbJsonLd, JsonLdGraph } from "@/components/JsonLd";
+import { KeyFacts } from "@/components/KeyFacts";
 import { Container } from "@/components/Container";
 import { PageHeader } from "@/components/PageHeader";
 import { PricingGrid } from "@/components/PricingTable";
 import { getGalleryItems } from "@/lib/gallery";
-import { RUSH_NOTE, TURNAROUND_NOTE } from "@/lib/pricing";
+import {
+  FINAL_PAYMENT,
+  NO_REVISIONS,
+  PAYMENT_SPLIT,
+  RUSH_NOTE,
+  SHIPPING,
+  TURNAROUND_TEXT,
+} from "@/lib/policies";
+import { howToSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/seo";
 import { COMMISSION_HREF, COMMISSION_LABEL } from "@/lib/site";
 
@@ -26,7 +36,7 @@ const STEPS = [
   },
   {
     title: "Painting begins",
-    text: "Once you have approved the sketch, Sindy paints your portrait in oils. No further revisions can be made once painting is underway.",
+    text: `Once you have approved the sketch, Sindy paints your portrait in oils. ${NO_REVISIONS}`,
   },
   {
     title: "Completion",
@@ -34,11 +44,11 @@ const STEPS = [
   },
   {
     title: "Payment",
-    text: "Payment is split into a 50% deposit and the remaining 50% on completion. The final payment is due before your portrait is shipped.",
+    text: `${PAYMENT_SPLIT} ${FINAL_PAYMENT}`,
   },
   {
     title: "UK shipping",
-    text: "Your finished portrait is carefully packed and shipped to your UK address. Shipping is UK only.",
+    text: `Your finished portrait is carefully packed and shipped to your UK address. ${SHIPPING}`,
   },
 ];
 
@@ -71,6 +81,8 @@ export default function HowItWorksPage() {
           ))}
         </ol>
 
+        <KeyFacts />
+
         {example?.photo ? (
           <figure className="mt-16">
             <ArtImage
@@ -95,7 +107,7 @@ export default function HowItWorksPage() {
             Turnaround
           </h2>
           <p className="mt-2 text-ink-soft">
-            {TURNAROUND_NOTE} Need it by a particular date? {RUSH_NOTE}.
+            {TURNAROUND_TEXT} Need it by a particular date? {RUSH_NOTE}.
           </p>
         </section>
       </Container>
@@ -117,6 +129,15 @@ export default function HowItWorksPage() {
           </div>
         </Container>
       </section>
+      <JsonLdGraph
+        nodes={[
+          howToSchema(
+            "How to commission a hand-painted oil portrait of your dog",
+            STEPS.map((s) => ({ name: s.title, text: s.text }))
+          ),
+        ]}
+      />
+      <BreadcrumbJsonLd trail={[{ name: "How It Works", path: "/how-it-works" }]} />
     </>
   );
 }

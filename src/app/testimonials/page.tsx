@@ -1,5 +1,6 @@
 import { ButtonLink } from "@/components/ButtonLink";
 import { Container } from "@/components/Container";
+import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import { PageHeader } from "@/components/PageHeader";
 import { PlaceholderNote } from "@/components/PlaceholderNote";
 import { pageMetadata } from "@/lib/seo";
@@ -68,6 +69,7 @@ export default function TestimonialsPage() {
           <ButtonLink href={COMMISSION_HREF}>{COMMISSION_LABEL}</ButtonLink>
         </div>
       </Container>
+      <BreadcrumbJsonLd trail={[{ name: "Testimonials", path: "/testimonials" }]} />
     </>
   );
 }

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Container } from "@/components/Container";
+import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import { PageHeader } from "@/components/PageHeader";
 import { GUIDES } from "@/lib/guides";
 import { pageMetadata } from "@/lib/seo";
@@ -45,6 +46,7 @@ export default function GuidesPage() {
           ))}
         </ul>
       </Container>
+      <BreadcrumbJsonLd trail={[{ name: "Guides", path: "/guides" }]} />
     </>
   );
 }

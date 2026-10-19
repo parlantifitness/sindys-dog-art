@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ButtonLink } from "@/components/ButtonLink";
 import { Container } from "@/components/Container";
+import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import { PageHeader } from "@/components/PageHeader";
 import { PlaceholderNote } from "@/components/PlaceholderNote";
 import { getGuide, GUIDES } from "@/lib/guides";
@@ -72,6 +73,12 @@ export default async function GuidePage(props: PageProps<"/guides/[slug]">) {
           </Link>
         </p>
       </Container>
+      <BreadcrumbJsonLd
+        trail={[
+          { name: "Guides", path: "/guides" },
+          { name: guide.title, path: `/guides/${guide.slug}` },
+        ]}
+      />
     </>
   );
 }

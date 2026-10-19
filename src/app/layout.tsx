@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Alex_Brush, Cormorant_Garamond, Jost } from "next/font/google";
-import { JsonLd } from "@/components/JsonLd";
+import { JsonLdGraph } from "@/components/JsonLd";
+import { DEFAULT_OG_IMAGE } from "@/lib/seo";
+import { organizationSchema, personSchema, websiteSchema } from "@/lib/schema";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SITE } from "@/lib/site";
@@ -43,22 +45,20 @@ export const metadata: Metadata = {
     title: `${SITE.name} | Hand-Painted Oil Dog Portraits, UK`,
     description: SITE.description,
     url: "/",
+    images: [
+      { url: DEFAULT_OG_IMAGE, width: 1200, height: 630, alt: `${SITE.name}: ${SITE.tagline}` },
+    ],
   },
-  twitter: { card: "summary_large_image" },
+  twitter: {
+    card: "summary_large_image",
+    title: `${SITE.name} | Hand-Painted Oil Dog Portraits, UK`,
+    description: SITE.description,
+    images: [DEFAULT_OG_IMAGE],
+  },
 };
 
 export const viewport: Viewport = {
   themeColor: "#faf9f4",
-};
-
-const organizationJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: SITE.name,
-  url: SITE.url,
-  slogan: SITE.tagline,
-  description: SITE.description,
-  areaServed: { "@type": "Country", name: "United Kingdom" },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -73,7 +73,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           {children}
         </main>
         <SiteFooter />
-        <JsonLd data={organizationJsonLd} />
+        <JsonLdGraph nodes={[organizationSchema(), websiteSchema(), personSchema()]} />
       </body>
     </html>
   );

@@ -46,7 +46,18 @@ export function SiteFooter() {
         </div>
       </Container>
       <Container className="mt-12 border-t border-line pt-6 text-center text-sm text-ink-soft">
-        <p>© {process.env.NEXT_PUBLIC_BUILD_YEAR} {SITE.name}. All paintings and images are the property of the artist.</p>
+        <nav aria-label="Legal" className="mb-3 flex justify-center gap-6">
+          <Link href="/privacy" className="hover:text-sage-deep hover:underline">
+            Privacy Policy
+          </Link>
+          <Link href="/terms" className="hover:text-sage-deep hover:underline">
+            Terms
+          </Link>
+        </nav>
+        <p>
+          © {process.env.NEXT_PUBLIC_BUILD_YEAR} {SITE.name}. All paintings and
+          images are the property of the artist.
+        </p>
       </Container>
     </footer>
   );

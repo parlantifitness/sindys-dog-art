@@ -4,6 +4,8 @@ import { Container } from "@/components/Container";
 import { GalleryCard } from "@/components/GalleryCard";
 import { PageHeader } from "@/components/PageHeader";
 import { CATEGORIES, getGalleryItems } from "@/lib/gallery";
+import { BreadcrumbJsonLd, JsonLdGraph } from "@/components/JsonLd";
+import { imageGallerySchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/seo";
 import { COMMISSION_HREF, COMMISSION_LABEL } from "@/lib/site";
 
@@ -12,6 +14,7 @@ export const metadata = pageMetadata({
   description:
     "Browse hand-painted oil dog portraits by Sindy: memorial portraits, gift portraits and multi-pet paintings, with original photos alongside the finished work.",
   path: "/gallery",
+  image: "/og/og-gallery.jpg",
 });
 
 export default function GalleryPage() {
@@ -81,6 +84,8 @@ export default function GalleryPage() {
           <ButtonLink href={COMMISSION_HREF}>{COMMISSION_LABEL}</ButtonLink>
         </div>
       </Container>
+      <JsonLdGraph nodes={[imageGallerySchema(items)]} />
+      <BreadcrumbJsonLd trail={[{ name: "Gallery", path: "/gallery" }]} />
     </>
   );
 }

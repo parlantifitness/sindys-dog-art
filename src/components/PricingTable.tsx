@@ -1,4 +1,5 @@
-import { formatPrice, PRICE_NOTE, RUSH_NOTE, SIZES } from "@/lib/pricing";
+import { formatPrice, SIZES } from "@/lib/pricing";
+import { PRICE_NOTE, RUSH_NOTE } from "@/lib/policies";
 
 export function PricingGrid() {
   return (

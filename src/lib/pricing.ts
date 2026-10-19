@@ -51,11 +51,6 @@ export const BUDGET_RANGES = [
   "Not sure yet",
 ] as const;
 
-export const RUSH_NOTE = "+30% for expedited turnaround — discuss with Sindy";
-export const TURNAROUND_NOTE = "Please discuss current turnaround with Sindy.";
-export const PRICE_NOTE =
-  "All prices are “from” prices. Sindy will confirm the final price with you before any work begins.";
-
 export function formatPrice(pounds: number): string {
   return `£${pounds}`;
 }

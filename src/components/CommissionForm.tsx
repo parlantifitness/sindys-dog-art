@@ -7,14 +7,9 @@ import {
   MAX_PHOTO_EDGE_PX,
   MAX_TOTAL_PHOTO_BYTES,
 } from "@/lib/commission";
-import {
-  BUDGET_RANGES,
-  formatPrice,
-  PORTRAIT_TYPES,
-  PRICE_NOTE,
-  RUSH_NOTE,
-  SIZES,
-} from "@/lib/pricing";
+import Link from "next/link";
+import { BUDGET_RANGES, formatPrice, PORTRAIT_TYPES, SIZES } from "@/lib/pricing";
+import { PRICE_NOTE, RUSH_NOTE, TURNAROUND_TYPICAL } from "@/lib/policies";
 
 type Status = "idle" | "submitting" | "success" | "error";
 type FieldErrors = Record<string, string>;
@@ -269,7 +264,7 @@ export function CommissionForm() {
         <Field label="Deadline (optional)" name="deadline" error={errors.deadline} id={id("deadline")}>
           <input {...fieldProps("deadline")} type="date" className={inputClass} />
           <p className="mt-1 text-sm text-ink-soft">
-            {RUSH_NOTE}.
+            {TURNAROUND_TYPICAL} {RUSH_NOTE}.
           </p>
         </Field>
       </fieldset>
@@ -334,7 +329,16 @@ export function CommissionForm() {
           {status === "submitting" ? "Sending…" : "Send enquiry"}
         </button>
         <p className="mt-3 text-sm text-ink-soft">
-          We’ll only use your details to reply to your enquiry.
+          We’ll only use your details to reply to your enquiry. By submitting,
+          you agree to our{" "}
+          <Link href="/privacy" className="underline hover:text-sage-deep">
+            Privacy Policy
+          </Link>{" "}
+          and{" "}
+          <Link href="/terms" className="underline hover:text-sage-deep">
+            Terms
+          </Link>
+          .
         </p>
       </div>
     </form>

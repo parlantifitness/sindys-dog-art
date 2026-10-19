@@ -1,3 +1,17 @@
+import {
+  FINAL_PAYMENT,
+  FINAL_PRICE_NOTE,
+  LIKENESS,
+  NO_REVISIONS,
+  PAYMENT_SPLIT,
+  REFUND,
+  REVISIONS,
+  RUSH_PERCENT,
+  SHIPPING,
+  TURNAROUND_TEXT,
+  priceSummary,
+} from "./policies";
+
 export interface FaqItem {
   question: string;
   answer: string;
@@ -15,17 +29,17 @@ export const FAQ_GROUPS: FaqGroup[] = [
       {
         question: "How much does a custom oil dog portrait cost?",
         answer:
-          "Prices start from £95 for an A5 portrait, £175 for A4, £320 for A3 and £480 for a Large portrait. These are “from” prices, and Sindy will confirm the final price with you before any work begins.",
+          `Prices start from ${priceSummary()}. These are “from” prices. ${FINAL_PRICE_NOTE}`,
       },
       {
         question: "How does payment work?",
         answer:
-          "Payment is split in two: a 50% deposit, then the remaining 50% on completion. The final payment is due before your portrait is shipped.",
+          `${PAYMENT_SPLIT} ${FINAL_PAYMENT}`,
       },
       {
         question: "Can I get my portrait faster for a deadline?",
         answer:
-          "Possibly. Expedited turnaround adds 30% to the price, so please discuss it with Sindy. Mention your deadline in your enquiry and she will let you know what is possible.",
+          `Possibly. Expedited turnaround adds ${RUSH_PERCENT}% to the price, so please discuss it with Sindy. Mention your deadline in your enquiry and she will let you know what is possible.`,
       },
       {
         question: "Do you paint more than one pet in a portrait?",
@@ -55,7 +69,7 @@ export const FAQ_GROUPS: FaqGroup[] = [
       {
         question: "How many revisions are included?",
         answer:
-          "Two rounds of revisions are included at the sketch/outline stage. Once painting is underway, no further revisions can be made, so please take your time with the sketch.",
+          `${REVISIONS} ${NO_REVISIONS} Please take your time with the sketch.`,
       },
     ],
   },
@@ -65,7 +79,7 @@ export const FAQ_GROUPS: FaqGroup[] = [
       {
         question: "How long will my portrait take?",
         answer:
-          "Turnaround depends on Sindy’s current schedule and the size of your portrait. Please discuss current turnaround with Sindy when you enquire, especially if you need it for a particular date.",
+          `${TURNAROUND_TEXT} If you need it for a particular date, mention it in your enquiry.`,
       },
     ],
   },
@@ -75,12 +89,12 @@ export const FAQ_GROUPS: FaqGroup[] = [
       {
         question: "What is your refund policy?",
         answer:
-          "Every portrait is a custom, hand-painted commission, so refunds are not available once painting has started. You approve the sketch or outline first, with two rounds of revisions, so you can be confident before the painting begins.",
+          `${REFUND} You approve the sketch or outline first, with two rounds of revisions, so you can be confident before the painting begins.`,
       },
       {
         question: "What if the portrait doesn’t look like my dog?",
         answer:
-          "If there is a genuine likeness issue, Sindy will offer a replacement or rework. Please get in touch as soon as you receive your portrait.",
+          `${LIKENESS} Please get in touch as soon as you receive your portrait.`,
       },
     ],
   },
@@ -90,7 +104,7 @@ export const FAQ_GROUPS: FaqGroup[] = [
       {
         question: "Do you ship outside the UK?",
         answer:
-          "No. Shipping is UK only. Customers across England, Scotland, Wales and Northern Ireland are very welcome.",
+          `No. ${SHIPPING} Customers across England, Scotland, Wales and Northern Ireland are very welcome.`,
       },
       {
         question: "When is my portrait shipped?",

@@ -1,6 +1,7 @@
 import { ButtonLink } from "@/components/ButtonLink";
 import { Container } from "@/components/Container";
-import { JsonLd } from "@/components/JsonLd";
+import { BreadcrumbJsonLd, JsonLd } from "@/components/JsonLd";
+import { KeyFacts } from "@/components/KeyFacts";
 import { PageHeader } from "@/components/PageHeader";
 import { ALL_FAQS, FAQ_GROUPS } from "@/lib/faq";
 import { pageMetadata } from "@/lib/seo";
@@ -34,7 +35,8 @@ export default function FaqPage() {
       </PageHeader>
 
       <Container narrow className="py-16">
-        <div className="space-y-14">
+        <KeyFacts />
+        <div className="mt-14 space-y-14">
           {FAQ_GROUPS.map((group) => (
             <section key={group.title} aria-labelledby={slug(group.title)}>
               <h2 id={slug(group.title)} className="mb-6 text-4xl">
@@ -57,6 +59,7 @@ export default function FaqPage() {
         </div>
       </Container>
       <JsonLd data={faqJsonLd} />
+      <BreadcrumbJsonLd trail={[{ name: "FAQ", path: "/faq" }]} />
     </>
   );
 }
