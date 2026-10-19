@@ -1,6 +1,6 @@
 "use client";
 
-import { useId, useState, type FormEvent, type ReactNode } from "react";
+import { useEffect, useId, useRef, useState, type FormEvent, type ReactNode } from "react";
 import {
   FIELD_LIMITS,
   MAX_PHOTOS,
@@ -10,6 +10,7 @@ import {
 import Link from "next/link";
 import { BUDGET_RANGES, formatPrice, PORTRAIT_TYPES, SIZES } from "@/lib/pricing";
 import { PRICE_NOTE, RUSH_NOTE, TURNAROUND_TYPICAL } from "@/lib/policies";
+import { CONTACT_EMAIL } from "@/lib/site";
 
 type Status = "idle" | "submitting" | "success" | "error";
 type FieldErrors = Record<string, string>;
@@ -18,6 +19,21 @@ const inputClass =
   "mt-1 block min-h-12 w-full border border-ink/40 bg-white px-4 py-2 text-base text-ink placeholder:text-ink-soft/70 focus:border-sage-deep";
 const legendClass =
   "mb-2 font-display text-2xl text-ink";
+
+const FIELD_LABELS: Record<string, string> = {
+  dogName: "Dog’s name",
+  photos: "Photos",
+  portraitType: "Type of portrait",
+  size: "Size",
+  occasion: "Occasion",
+  deadline: "Deadline",
+  notes: "Notes",
+  budget: "Budget",
+  name: "Your name",
+  email: "Email",
+  phone: "Phone",
+  ukDelivery: "UK delivery",
+};
 
 /** Scales a photo down in the browser so a handful of phone photos fit in one upload. */
 async function shrinkPhoto(file: File): Promise<File> {
@@ -48,6 +64,28 @@ export function CommissionForm() {
   const [errors, setErrors] = useState<FieldErrors>({});
   const [photos, setPhotos] = useState<File[]>([]);
   const [photoNote, setPhotoNote] = useState("");
+  const [reference, setReference] = useState("");
+  // Bumped on every failure so the message is scrolled into view even if the status did not change.
+  const [notice, setNotice] = useState(0);
+  const statusRef = useRef<HTMLDivElement>(null);
+
+  // The result message sits beside the Send button (and replaces the form on success), so bring it
+  // into view and move focus to it: the page must never appear to do nothing.
+  useEffect(() => {
+    if (status !== "error" && status !== "success") return;
+    const el = statusRef.current;
+    if (!el) return;
+    el.scrollIntoView({ block: status === "success" ? "start" : "center" });
+    el.focus({ preventScroll: true });
+  }, [status, notice]);
+
+  function fail(text: string, fieldErrors: FieldErrors, code: string) {
+    setErrors(fieldErrors);
+    setMessage(text);
+    setReference(code);
+    setStatus("error");
+    setNotice((n) => n + 1);
+  }
 
   const id = (name: string) => `${uid}-${name}`;
   const fieldProps = (name: string) => ({
@@ -89,39 +127,55 @@ export function CommissionForm() {
     photos.forEach((photo) => data.append("photos", photo));
 
     if (photos.length === 0) {
-      setErrors({ photos: "Please add at least one photo of your dog." });
-      document.getElementById(id("photos"))?.focus();
+      fail(
+        "Please add at least one photo of your dog before sending.",
+        { photos: "Please add at least one photo of your dog." },
+        "no_photo"
+      );
       return;
     }
 
     setStatus("submitting");
     setErrors({});
+    setReference("");
     try {
       const response = await fetch("/api/commission", { method: "POST", body: data });
       const result = (await response.json().catch(() => ({}))) as {
         error?: string;
         errors?: FieldErrors;
+        code?: string;
       };
       if (!response.ok) {
-        setErrors(result.errors ?? {});
-        setMessage(result.error ?? "Something went wrong. Please try again.");
-        setStatus("error");
+        const tooLarge = response.status === 413;
+        fail(
+          tooLarge
+            ? "Your photos are too large to send together. Please remove one or two."
+            : (result.error ?? "Something went wrong sending your enquiry."),
+          result.errors ?? {},
+          result.code ?? `http_${response.status}`
+        );
         return;
       }
       setStatus("success");
+      setNotice((n) => n + 1);
       formEl.reset();
       setPhotos([]);
     } catch {
-      setMessage("We couldn’t reach the server. Please check your connection and try again.");
-      setStatus("error");
+      fail(
+        "We couldn’t reach the server. Please check your connection and try again.",
+        {},
+        "network_error"
+      );
     }
   }
 
   if (status === "success") {
     return (
       <div
+        ref={statusRef}
+        tabIndex={-1}
         role="status"
-        className="border border-sage bg-sage-soft/60 p-10 text-center"
+        className="scroll-mt-24 border border-sage bg-sage-soft/60 p-10 text-center outline-none"
       >
         <h2 className="text-4xl">Thank you!</h2>
         <p className="mx-auto mt-3 max-w-md text-ink-soft">
@@ -134,12 +188,6 @@ export function CommissionForm() {
 
   return (
     <form onSubmit={onSubmit} className="space-y-12">
-      {status === "error" ? (
-        <p role="alert" className="border border-red-800 bg-red-50 p-4 text-red-900">
-          {message}
-        </p>
-      ) : null}
-
       <fieldset className="space-y-5">
         <legend className={legendClass}>Your dog</legend>
         <Field label="Dog’s name" name="dogName" error={errors.dogName} id={id("dogName")}>
@@ -201,7 +249,7 @@ export function CommissionForm() {
         </div>
       </fieldset>
 
-      <fieldset>
+      <fieldset id={id("portraitType")}>
         <legend className={legendClass}>Type of portrait</legend>
         <div className="grid gap-3 sm:grid-cols-3">
           {PORTRAIT_TYPES.map((type) => (
@@ -226,7 +274,7 @@ export function CommissionForm() {
         {errors.portraitType ? <ErrorText id={id("portraitType-error")}>{errors.portraitType}</ErrorText> : null}
       </fieldset>
 
-      <fieldset>
+      <fieldset id={id("size")}>
         <legend className={legendClass}>Size</legend>
         <p className="mb-3 text-sm text-ink-soft">{PRICE_NOTE}</p>
         <div className="grid gap-3 sm:grid-cols-2">
@@ -308,7 +356,7 @@ export function CommissionForm() {
           <input {...fieldProps("phone")} type="tel" autoComplete="tel" maxLength={FIELD_LIMITS.phone} className={inputClass} />
         </Field>
         <label className="flex items-start gap-3">
-          <input type="checkbox" name="ukDelivery" value="yes" required className="mt-1.5 size-5 accent-sage-deep" />
+          <input id={id("ukDelivery")} type="checkbox" name="ukDelivery" value="yes" required className="mt-1.5 size-5 accent-sage-deep" />
           <span className="text-sm">
             My portrait will be delivered to a UK address. Shipping is UK only.
           </span>
@@ -325,6 +373,45 @@ export function CommissionForm() {
       </div>
 
       <div>
+        <div
+          ref={statusRef}
+          tabIndex={-1}
+          aria-live="polite"
+          className="scroll-mt-24 outline-none"
+        >
+          {status === "submitting" ? (
+            <p className="mb-4 border border-line bg-sage-soft/60 p-4 text-ink-soft">
+              Sending your enquiry…
+            </p>
+          ) : null}
+          {status === "error" ? (
+            <div role="alert" className="mb-4 border border-red-800 bg-red-50 p-4 text-red-900">
+              <p className="font-medium">{message}</p>
+              {Object.entries(errors).some(([, text]) => text) ? (
+                <ul className="mt-2 list-disc space-y-1 pl-5 text-sm">
+                  {Object.entries(errors)
+                    .filter(([, text]) => text)
+                    .map(([field, text]) => (
+                      <li key={field}>
+                        <a href={`#${id(field)}`} className="underline">
+                          {FIELD_LABELS[field] ?? field}
+                        </a>
+                        : {text}
+                      </li>
+                    ))}
+                </ul>
+              ) : null}
+              <p className="mt-3 text-sm">
+                You can also email your photos and details to{" "}
+                <a href={`mailto:${CONTACT_EMAIL}`} className="underline">
+                  {CONTACT_EMAIL}
+                </a>
+                .
+              </p>
+              {reference ? <p className="mt-1 text-xs opacity-80">Reference: {reference}</p> : null}
+            </div>
+          ) : null}
+        </div>
         <button
           type="submit"
           disabled={status === "submitting"}

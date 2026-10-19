@@ -24,7 +24,10 @@ export async function POST(request: Request) {
   try {
     form = await request.formData();
   } catch {
-    return NextResponse.json({ error: "We couldn’t read that submission." }, { status: 400 });
+    return NextResponse.json(
+      { error: "We couldn’t read that submission.", code: "unreadable_submission" },
+      { status: 400 }
+    );
   }
 
   // Honeypot: pretend success so bots move on.
@@ -71,7 +74,7 @@ export async function POST(request: Request) {
 
   if (Object.keys(errors).length > 0) {
     return NextResponse.json(
-      { error: "Please check the highlighted fields.", errors },
+      { error: "Please check the details below and try again.", errors, code: "validation" },
       { status: 400 }
     );
   }
@@ -108,7 +111,7 @@ export async function POST(request: Request) {
     }
     console.error("[commission] RESEND_API_KEY is not set.");
     return NextResponse.json(
-      { error: "Enquiries aren’t available right now. Please try again later." },
+      { error: "Enquiries aren’t available right now.", code: "email_not_configured" },
       { status: 503 }
     );
   }
@@ -140,7 +143,7 @@ export async function POST(request: Request) {
   } catch (error) {
     console.error("[commission] Could not reach Resend:", error);
     return NextResponse.json(
-      { error: "We couldn’t send your enquiry. Please try again in a moment." },
+      { error: "We couldn’t send your enquiry.", code: "email_unreachable" },
       { status: 502 }
     );
   }
@@ -148,7 +151,7 @@ export async function POST(request: Request) {
   if (!response.ok) {
     console.error(`[commission] Resend responded ${response.status}: ${await response.text()}`);
     return NextResponse.json(
-      { error: "We couldn’t send your enquiry. Please try again in a moment." },
+      { error: "We couldn’t send your enquiry.", code: `email_rejected_${response.status}` },
       { status: 502 }
     );
   }
