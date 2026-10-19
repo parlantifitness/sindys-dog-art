@@ -1,8 +1,8 @@
+import Link from "next/link";
 import { ArtImage } from "@/components/ArtImage";
 import { ButtonLink } from "@/components/ButtonLink";
 import { Container } from "@/components/Container";
 import { PageHeader } from "@/components/PageHeader";
-import { PlaceholderNote } from "@/components/PlaceholderNote";
 import { DOG_PHOTOS, SINDY_PHOTO } from "@/lib/about";
 import { BreadcrumbJsonLd, JsonLdGraph } from "@/components/JsonLd";
 import { ORG_ID, PERSON_ID, abs } from "@/lib/schema";
@@ -21,8 +21,8 @@ export default function AboutPage() {
     <>
       <PageHeader eyebrow="About" title="Meet Sindy">
         <p>
-          Sindy has been painting dogs for over 20 years, and she still can’t
-          resist a good face.
+          A lifelong dog lover who has been painting dogs in oils for over 20
+          years.
         </p>
       </PageHeader>
 
@@ -38,16 +38,41 @@ export default function AboutPage() {
         <div className="space-y-5 text-ink-soft">
           <h2 className="text-4xl text-ink">Painting dogs for over 20 years</h2>
           <p>
-            Sindy is a UK-based artist who hand-paints custom oil portraits of
-            dogs. For more than twenty years she has painted much-loved
-            companions for customers across the UK, as lasting memorials and as
-            gifts for the dog lovers in their lives.
+            I have loved art for as long as I can remember. I studied it at
+            school and went to art classes with the lovely Michael Collins, who
+            was a real inspiration to me.
           </p>
-          <PlaceholderNote>
-            Sindy’s full bio goes here: how she started painting, what draws
-            her to dogs, her studio and materials, and a personal anecdote or
-            two.
-          </PlaceholderNote>
+          <p>
+            I have always been a dog lover, so I started by painting my own
+            dogs. Friends and family then asked me to paint their animals, and
+            it all started from there. Now I paint animals regularly, and I have
+            been painting dogs for over 20 years.
+          </p>
+
+          <h3 className="pt-3 font-display text-3xl text-ink">
+            Your dog’s portrait
+          </h3>
+          <p>
+            If you would like your dog painted in oil, I need just three things
+            from you:
+          </p>
+          <ul className="ml-5 list-disc space-y-1">
+            <li>a good, clear photograph (our{" "}
+              <Link
+                href="/guides/best-photos-for-a-dog-portrait"
+                className="underline decoration-sage underline-offset-4 hover:text-sage-deep"
+              >
+                guide to the best photos
+              </Link>{" "}
+              can help)
+            </li>
+            <li>your dog’s name</li>
+            <li>a little about their character, so I get a feel for them</li>
+          </ul>
+          <p>
+            Then leave it to me. I will send you a sketch to approve before I
+            start painting, and I will take care of the rest.
+          </p>
           <div className="pt-2">
             <ButtonLink href={COMMISSION_HREF}>{COMMISSION_LABEL}</ButtonLink>
           </div>

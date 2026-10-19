@@ -81,5 +81,4 @@ The five articles live in `src/content/guides/` as typed content (see `src/lib/g
 Search the codebase for `PlaceholderNote` to find copy Sindy needs to write:
 
 - `src/lib/testimonials.ts`: 15 placeholder reviews (the page is `noindex` until they are real)
-- `src/app/about/page.tsx`: full bio
 - Turnaround time: currently “discuss with Sindy” (`src/lib/pricing.ts`)
