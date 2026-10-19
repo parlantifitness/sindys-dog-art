@@ -1,0 +1,73 @@
+import { ButtonLink } from "@/components/ButtonLink";
+import { Container } from "@/components/Container";
+import { PageHeader } from "@/components/PageHeader";
+import { PlaceholderNote } from "@/components/PlaceholderNote";
+import { pageMetadata } from "@/lib/seo";
+import { COMMISSION_HREF, COMMISSION_LABEL } from "@/lib/site";
+import { ALL_PLACEHOLDERS, TESTIMONIALS } from "@/lib/testimonials";
+
+export const metadata = pageMetadata({
+  title: "Testimonials",
+  description:
+    "Read what customers across the UK say about their hand-painted oil dog portraits from Sindy, from memorial tributes to birthday and Christmas gifts.",
+  path: "/testimonials",
+  // Keep out of search results until the placeholder reviews are replaced.
+  noindex: ALL_PLACEHOLDERS,
+});
+
+const KIND_LABEL = {
+  memorial: "Memorial portrait",
+  gift: "Gift portrait",
+  "multi-pet": "Multi-pet portrait",
+} as const;
+
+export default function TestimonialsPage() {
+  return (
+    <>
+      <PageHeader eyebrow="Testimonials" title="In their own words">
+        <p>
+          What customers say about their portraits, and the occasions that led
+          them to commission one.
+        </p>
+      </PageHeader>
+
+      <Container className="py-14">
+        {ALL_PLACEHOLDERS ? (
+          <PlaceholderNote>
+            These are layout placeholders. Replace each entry in
+            src/lib/testimonials.ts with a real review (the buyer’s own words
+            and what prompted the commission). This page stays hidden from
+            search engines until you do.
+          </PlaceholderNote>
+        ) : null}
+
+        <ul className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {TESTIMONIALS.map((review) => (
+            <li key={review.id}>
+              <figure className="flex h-full flex-col border border-line bg-white/50 p-7">
+                {review.placeholder ? (
+                  <span className="mb-3 self-start text-xs font-medium uppercase tracking-[0.2em] text-sage-deep">
+                    Placeholder
+                  </span>
+                ) : null}
+                <blockquote className="flex-1 font-display text-xl italic leading-snug">
+                  <p>“{review.quote}”</p>
+                </blockquote>
+                <figcaption className="mt-5 border-t border-line pt-4 text-sm">
+                  <span className="block font-medium">{review.buyer}</span>
+                  <span className="block text-ink-soft">
+                    {KIND_LABEL[review.kind]} · {review.occasion}
+                  </span>
+                </figcaption>
+              </figure>
+            </li>
+          ))}
+        </ul>
+
+        <div className="mt-16 text-center">
+          <ButtonLink href={COMMISSION_HREF}>{COMMISSION_LABEL}</ButtonLink>
+        </div>
+      </Container>
+    </>
+  );
+}

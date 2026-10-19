@@ -1,0 +1,66 @@
+import { ButtonLink } from "@/components/ButtonLink";
+import { Container } from "@/components/Container";
+import { JsonLd } from "@/components/JsonLd";
+import { PageHeader } from "@/components/PageHeader";
+import { ALL_FAQS, FAQ_GROUPS } from "@/lib/faq";
+import { pageMetadata } from "@/lib/seo";
+import { COMMISSION_HREF, COMMISSION_LABEL } from "@/lib/site";
+
+export const metadata = pageMetadata({
+  title: "Frequently Asked Questions",
+  description:
+    "Answers about pricing, turnaround, revisions, refunds and UK shipping for custom hand-painted oil dog portraits by Sindy.",
+  path: "/faq",
+});
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: ALL_FAQS.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: { "@type": "Answer", text: faq.answer },
+  })),
+};
+
+export default function FaqPage() {
+  return (
+    <>
+      <PageHeader eyebrow="FAQ" title="Questions, answered">
+        <p>
+          Everything you might want to know before commissioning a portrait. If
+          you can’t find your answer, ask Sindy when you enquire.
+        </p>
+      </PageHeader>
+
+      <Container narrow className="py-16">
+        <div className="space-y-14">
+          {FAQ_GROUPS.map((group) => (
+            <section key={group.title} aria-labelledby={slug(group.title)}>
+              <h2 id={slug(group.title)} className="mb-6 text-4xl">
+                {group.title}
+              </h2>
+              <dl className="divide-y divide-line border-y border-line">
+                {group.items.map((faq) => (
+                  <div key={faq.question} className="py-6">
+                    <dt className="font-display text-2xl">{faq.question}</dt>
+                    <dd className="mt-2 text-ink-soft">{faq.answer}</dd>
+                  </div>
+                ))}
+              </dl>
+            </section>
+          ))}
+        </div>
+
+        <div className="mt-16 text-center">
+          <ButtonLink href={COMMISSION_HREF}>{COMMISSION_LABEL}</ButtonLink>
+        </div>
+      </Container>
+      <JsonLd data={faqJsonLd} />
+    </>
+  );
+}
+
+function slug(text: string): string {
+  return `faq-${text.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
+}
