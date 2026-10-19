@@ -41,13 +41,15 @@ export default function AboutPage() {
             I have always loved to paint. As a child I was always artistic and
             loved creating paintings, even at school. I later studied art, but
             it was only after having my children that I had the time to put my
-            talents to use.
+            talents to use. I attended an art class for a few years, which was
+            a real inspiration.
           </p>
           <p>
-            I have always been a dog lover, so I started by painting my own
-            dogs. Friends and family then asked me to paint their animals, and
-            it all started from there. Now I paint animals regularly, and I have
-            been painting dogs for over 20 years.
+            I have always been a dog lover. I started by painting my own pets,
+            and then painted for family members and friends, who recommended me
+            to their friends and families. It all started from there. Now I
+            paint animals regularly, and I have been painting dogs for over 20
+            years.
           </p>
 
           <h3 className="pt-3 font-display text-3xl text-ink">
