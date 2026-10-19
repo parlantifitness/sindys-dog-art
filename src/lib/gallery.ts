@@ -1,4 +1,4 @@
-import { readdirSync, readFileSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { imageSize } from "image-size";
 
@@ -263,9 +263,17 @@ export function getGalleryItems(): GalleryItem[] {
   return items;
 }
 
-/** Home page “Recent portraits”: the FEATURED_IDS that exist, falling back to the first few paintings. */
+/**
+ * Home page “Recent portraits”: the FEATURED_IDS that exist, falling back to the first few paintings.
+ * A trimmed copy at public/featured/{id}.jpg, if present, is shown here instead of the full painting
+ * (the gallery always shows the whole thing).
+ */
 export function getFeaturedItems(): GalleryItem[] {
-  const items = getGalleryItems();
+  const items = getGalleryItems().map((item) => {
+    const trimmed = `/featured/${item.id}.jpg`;
+    if (!existsSync(path.join(process.cwd(), "public", trimmed))) return item;
+    return { ...item, painting: trimmed, ...paintingSize(trimmed) };
+  });
   const featured = FEATURED_IDS.flatMap((id) => items.find((item) => item.id === id) ?? []);
   return featured.length > 0 ? featured : items.filter((item) => item.painting).slice(0, 3);
 }
