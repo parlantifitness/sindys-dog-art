@@ -145,6 +145,9 @@ const DETAILS: Record<
   },
 };
 
+/** The paintings shown, left to right, in “Recent portraits” on the home page. */
+const FEATURED_IDS = ["gift-08", "memorial-03", "multi-pet-01"];
+
 const FILE_PATTERN = /^(memorial|gift|multi-pet)-(\d+)(-photo)?\.(jpe?g|png|webp|avif)$/i;
 
 const CATEGORY_LABEL: Record<PortraitCategory, string> = {
@@ -223,4 +226,11 @@ export function getGalleryItems(): GalleryItem[] {
   }
 
   return items;
+}
+
+/** Home page “Recent portraits”: the FEATURED_IDS that exist, falling back to the first few paintings. */
+export function getFeaturedItems(): GalleryItem[] {
+  const items = getGalleryItems();
+  const featured = FEATURED_IDS.flatMap((id) => items.find((item) => item.id === id) ?? []);
+  return featured.length > 0 ? featured : items.filter((item) => item.painting).slice(0, 3);
 }

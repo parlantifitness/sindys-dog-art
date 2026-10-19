@@ -4,7 +4,7 @@ import { ArtImage } from "@/components/ArtImage";
 import { ButtonLink } from "@/components/ButtonLink";
 import { Container } from "@/components/Container";
 import { PricingGrid } from "@/components/PricingTable";
-import { getGalleryItems, type PortraitCategory } from "@/lib/gallery";
+import { getFeaturedItems, type PortraitCategory } from "@/lib/gallery";
 import { COMMISSION_HREF, COMMISSION_LABEL, SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -35,10 +35,7 @@ const OCCASIONS: {
 ];
 
 export default function HomePage() {
-  const items = getGalleryItems();
-  const featured = (["memorial", "gift", "multi-pet"] as const).flatMap(
-    (category) => items.find((item) => item.category === category) ?? []
-  );
+  const featured = getFeaturedItems();
 
   return (
     <>
