@@ -17,6 +17,8 @@ export interface GalleryItem {
   height?: number;
   paintingAlt: string;
   photoAlt: string;
+  /** CSS object-position used when the painting is cropped to a fixed frame (e.g. home page strip). */
+  focus?: string;
 }
 
 export const CATEGORIES: readonly {
@@ -57,7 +59,7 @@ const SLOTS_PER_CATEGORY = 0;
  */
 const DETAILS: Record<
   string,
-  { title?: string; paintingAlt?: string; photoAlt?: string }
+  { title?: string; paintingAlt?: string; photoAlt?: string; focus?: string }
 > = {
   "memorial-01": {
     title: "White dog among blue flowers",
@@ -135,6 +137,15 @@ const DETAILS: Record<
     title: "Westie in the grass",
     paintingAlt: "Oil painting of a West Highland white terrier lying in grass looking upwards",
   },
+  "memorial-10": {
+    title: "Black poodle",
+    paintingAlt: "Oil painting of a black poodle with curly fur tilting its head against a soft blue-grey background",
+  },
+  "gift-11": {
+    title: "Birthday bulldog",
+    paintingAlt: "Oil painting of a fawn French bulldog in a blue star-patterned party hat resting its chin on a table beside a birthday cake with a candle",
+    focus: "center 12%",
+  },
   "multi-pet-01": {
     title: "Millie and Nellie",
     paintingAlt: "Oil painting of Nellie the French bulldog and Millie the Yorkshire terrier in matching red harnesses",
@@ -146,7 +157,7 @@ const DETAILS: Record<
 };
 
 /** The paintings shown, left to right, in “Recent portraits” on the home page. */
-const FEATURED_IDS = ["gift-08", "memorial-03", "multi-pet-01"];
+const FEATURED_IDS = ["gift-08", "gift-11", "multi-pet-01"];
 
 const FILE_PATTERN = /^(memorial|gift|multi-pet)-(\d+)(-photo)?\.(jpe?g|png|webp|avif)$/i;
 
@@ -221,6 +232,7 @@ export function getGalleryItems(): GalleryItem[] {
           `Hand-painted oil portrait of a dog (${label} commission)`,
         photoAlt:
           detail.photoAlt ?? `Original photo of the dog used for this ${label} portrait`,
+        focus: detail.focus,
       });
     }
   }

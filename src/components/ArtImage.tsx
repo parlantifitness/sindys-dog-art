@@ -10,6 +10,7 @@ export function ArtImage({
   label = "Painting coming soon",
   sizes = "(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw",
   priority = false,
+  objectPosition,
   className = "",
 }: {
   src?: string;
@@ -20,6 +21,8 @@ export function ArtImage({
   label?: string;
   sizes?: string;
   priority?: boolean;
+  /** Which part stays visible when the image is cropped to the frame (CSS object-position). */
+  objectPosition?: string;
   className?: string;
 }) {
   return (
@@ -37,6 +40,7 @@ export function ArtImage({
           sizes={sizes}
           priority={priority}
           className="object-cover"
+          style={objectPosition ? { objectPosition } : undefined}
         />
       ) : (
         <div className="absolute inset-3 flex flex-col items-center justify-center gap-3 border border-sage/50 text-center">

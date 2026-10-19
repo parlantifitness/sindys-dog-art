@@ -107,6 +107,7 @@ export default function HomePage() {
                 <ArtImage
                   src={item.painting}
                   alt={item.paintingAlt}
+                  objectPosition={item.focus}
                   sizes="(min-width: 640px) 33vw, 100vw"
                 />
               </li>
