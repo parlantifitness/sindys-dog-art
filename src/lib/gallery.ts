@@ -162,6 +162,18 @@ const DETAILS: Record<
     photoAlt: "Original reference photo of a French bulldog beside the finished hand-painted oil portrait, painted as a gift portrait, showing how closely the painting matches",
     focus: "center 12%",
   },
+  "hand-painted-brown-scruffy-faced-dog-oil-portrait-memorial": {
+    title: "Brown dog with amber eyes",
+    paintingAlt: "Hand-painted oil portrait of a brown dog with a scruffy muzzle and amber eyes against a soft pastel background, painted as a memorial piece",
+  },
+  "hand-painted-black-dog-blue-collar-oil-portrait-memorial": {
+    title: "Black dog in a blue collar",
+    paintingAlt: "Hand-painted oil portrait of a black dog looking upwards in a blue tartan collar against a soft pink, gold and teal background, painted as a memorial piece",
+  },
+  "hand-painted-brindle-dog-profile-oil-portrait-gift": {
+    title: "Brindle dog in profile",
+    paintingAlt: "Hand-painted oil portrait of a brindle dog in profile wearing a brown leather collar and harness against a green background, painted as a gift portrait",
+  },
   "multi-pet-01": {
     title: "Millie and Nellie",
     paintingAlt: "Oil painting of Nellie the French bulldog and Millie the Yorkshire terrier in matching red harnesses",
