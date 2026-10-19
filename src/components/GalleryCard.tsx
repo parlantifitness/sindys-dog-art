@@ -14,8 +14,8 @@ export function GalleryCard({ item }: { item: GalleryItem }) {
       <ArtImage
         src={showPhoto ? item.photo : item.painting}
         alt={showPhoto ? item.photoAlt : item.paintingAlt}
-        width={item.width}
-        height={item.height}
+        width={showPhoto ? item.photoWidth : item.width}
+        height={showPhoto ? item.photoHeight : item.height}
         sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
       />
       <figcaption className="mt-3 flex items-center justify-between gap-3 text-sm">
@@ -38,7 +38,7 @@ export function GalleryCard({ item }: { item: GalleryItem }) {
                     : "text-ink-soft hover:text-ink"
                 }`}
               >
-                {option === "painting" ? "Painting" : "Photo"}
+                {option === "painting" ? "Painting" : (item.photoLabel ?? "Photo")}
               </button>
             ))}
           </span>

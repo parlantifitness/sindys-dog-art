@@ -15,6 +15,10 @@ export interface GalleryItem {
   /** Natural pixel size of the painting, so it can be shown uncropped. */
   width?: number;
   height?: number;
+  photoWidth?: number;
+  photoHeight?: number;
+  /** Label for the second view in the card toggle; defaults to “Photo”. */
+  photoLabel?: string;
   paintingAlt: string;
   photoAlt: string;
   /** CSS object-position used when the painting is cropped to a fixed frame (e.g. home page strip). */
@@ -59,7 +63,13 @@ const SLOTS_PER_CATEGORY = 0;
  */
 const DETAILS: Record<
   string,
-  { title?: string; paintingAlt?: string; photoAlt?: string; focus?: string }
+  {
+    title?: string;
+    paintingAlt?: string;
+    photoAlt?: string;
+    photoLabel?: string;
+    focus?: string;
+  }
 > = {
   "memorial-01": {
     title: "White dog among blue flowers",
@@ -144,6 +154,8 @@ const DETAILS: Record<
   "gift-11": {
     title: "Birthday bulldog",
     paintingAlt: "Oil painting of a fawn French bulldog in a blue star-patterned party hat resting its chin on a table beside a birthday cake with a candle",
+    photoLabel: "Compare",
+    photoAlt: "The original reference photo of the bulldog beside the finished oil painting, showing how closely the portrait matches",
     focus: "center 12%",
   },
   "multi-pet-01": {
@@ -227,6 +239,12 @@ export function getGalleryItems(): GalleryItem[] {
         painting: files.painting,
         photo: files.photo,
         ...(files.painting ? paintingSize(files.painting) : {}),
+        ...(files.photo
+          ? (({ width, height }) => ({ photoWidth: width, photoHeight: height }))(
+              paintingSize(files.photo)
+            )
+          : {}),
+        photoLabel: detail.photoLabel,
         paintingAlt:
           detail.paintingAlt ??
           `Hand-painted oil portrait of a dog (${label} commission)`,

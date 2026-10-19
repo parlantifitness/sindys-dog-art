@@ -1,7 +1,9 @@
+import { ArtImage } from "@/components/ArtImage";
 import { ButtonLink } from "@/components/ButtonLink";
 import { Container } from "@/components/Container";
 import { PageHeader } from "@/components/PageHeader";
 import { PricingGrid } from "@/components/PricingTable";
+import { getGalleryItems } from "@/lib/gallery";
 import { RUSH_NOTE, TURNAROUND_NOTE } from "@/lib/pricing";
 import { pageMetadata } from "@/lib/seo";
 import { COMMISSION_HREF, COMMISSION_LABEL } from "@/lib/site";
@@ -41,6 +43,7 @@ const STEPS = [
 ];
 
 export default function HowItWorksPage() {
+  const example = getGalleryItems().find((item) => item.id === "gift-11");
   return (
     <>
       <PageHeader eyebrow="The process" title="How it works">
@@ -67,6 +70,22 @@ export default function HowItWorksPage() {
             </li>
           ))}
         </ol>
+
+        {example?.photo ? (
+          <figure className="mt-16">
+            <ArtImage
+              src={example.photo}
+              alt={example.photoAlt}
+              width={example.photoWidth}
+              height={example.photoHeight}
+              sizes="(min-width: 768px) 768px, 100vw"
+            />
+            <figcaption className="mt-3 text-center text-sm text-ink-soft">
+              From photo to painting: the reference photo (left) beside the
+              finished oil portrait (right).
+            </figcaption>
+          </figure>
+        ) : null}
 
         <section
           aria-labelledby="turnaround-heading"
