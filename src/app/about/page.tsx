@@ -39,10 +39,10 @@ export default function AboutPage() {
           <h2 className="text-4xl text-ink">Painting dogs for over 20 years</h2>
           <p>
             I have always loved to paint. As a child I was always artistic and
-            loved creating paintings, even at school. I later studied art, but
-            it was only after having my children that I had the time to put my
-            talents to use. I attended an art class for a few years, which was
-            a real inspiration.
+            loved creating paintings, even at school. It was only after having
+            my children that I had the time to put my talents to use. I
+            attended an art class for a few years, which was a real
+            inspiration.
           </p>
           <p>
             I have always been a dog lover. I started by painting my own pets,
