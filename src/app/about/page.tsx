@@ -38,9 +38,10 @@ export default function AboutPage() {
         <div className="space-y-5 text-ink-soft">
           <h2 className="text-4xl text-ink">Painting dogs for over 20 years</h2>
           <p>
-            I have loved art for as long as I can remember. I studied it at
-            school and then for years at art school, and I went to art classes
-            with a teacher who was a real inspiration to me.
+            I have always loved to paint. As a child I was always artistic and
+            loved creating paintings, even at school. I later studied art, but
+            it was only after having my children that I had the time to put my
+            talents to use.
           </p>
           <p>
             I have always been a dog lover, so I started by painting my own
