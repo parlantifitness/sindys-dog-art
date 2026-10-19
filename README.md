@@ -43,16 +43,23 @@ Descriptive file names help image search: use the breed only when you are sure o
 
 ## Enquiry form
 
-`/commission` posts to `src/app/api/commission/route.ts`, which emails Sindy (with the photos attached) through [Resend](https://resend.com). Set these environment variables:
+`/commission` posts to `src/app/api/commission/route.ts`, which emails the business inbox (`CONTACT_EMAIL` in `src/lib/site.ts`, currently sindysdogart@gmail.com) with the photos attached, through [Resend](https://resend.com). Replying to an enquiry email replies to the customer. The one required setting is:
 
 ```
-RESEND_API_KEY=...
-ENQUIRY_TO_EMAIL=where-enquiries-go@example.com
-ENQUIRY_FROM_EMAIL="Sindy’s Dog Art <enquiries@sindysdogart.com>"   # a sender verified in Resend
+RESEND_API_KEY=...                  # from the Resend dashboard
+```
+
+Optional:
+
+```
+ENQUIRY_TO_EMAIL=...                # defaults to CONTACT_EMAIL
+ENQUIRY_FROM_EMAIL="Sindy’s Dog Art <enquiries@sindysdogart.com>"   # defaults to Resend's test sender
 NEXT_PUBLIC_SITE_URL=https://sindysdogart.com
 ```
 
-Without them, enquiries are logged to the server console in development and rejected with a 503 in production. Photos are shrunk in the browser (max 4, 4 MB combined) so the upload fits typical serverless request limits.
+The default test sender (`onboarding@resend.dev`) only delivers to the email address the Resend account was created with, so create the Resend account with sindysdogart@gmail.com. For better deliverability later, verify sindysdogart.com in Resend and set `ENQUIRY_FROM_EMAIL`.
+
+Without `RESEND_API_KEY`, enquiries are logged to the server console in development and rejected with a 503 in production. Photos are shrunk in the browser (max 4, 4 MB combined) so the upload fits typical serverless request limits.
 
 ## Keeping the site consistent
 

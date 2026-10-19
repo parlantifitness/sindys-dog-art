@@ -5,6 +5,7 @@
  * the wording can never drift between pages.
  */
 import { formatPrice, SIZES } from "./pricing";
+import { CONTACT_EMAIL } from "./site";
 
 /**
  * PLACEHOLDER: Sindy to confirm. This is the one place the typical turnaround is
@@ -56,4 +57,4 @@ export const KEY_FACTS: readonly { label: string; value: string }[] = [
 ];
 
 export const POLICY_UPDATED = "19 October 2026";
-export const PRIVACY_EMAIL = "privacy@sindysdogart.com";
+export const PRIVACY_EMAIL = CONTACT_EMAIL;

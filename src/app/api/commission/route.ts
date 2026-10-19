@@ -4,6 +4,7 @@ import {
   MAX_PHOTOS,
   MAX_TOTAL_PHOTO_BYTES,
 } from "@/lib/commission";
+import { CONTACT_EMAIL } from "@/lib/site";
 import { BUDGET_RANGES, PORTRAIT_TYPES, SIZES, formatPrice } from "@/lib/pricing";
 
 const PORTRAIT_TYPE_VALUES: string[] = PORTRAIT_TYPES.map((t) => t.label);
@@ -95,15 +96,17 @@ export async function POST(request: Request) {
   ].join("\n");
 
   const apiKey = process.env.RESEND_API_KEY;
-  const to = process.env.ENQUIRY_TO_EMAIL;
-  const from = process.env.ENQUIRY_FROM_EMAIL;
+  // Enquiries go to the business inbox unless overridden. Without a verified sending domain,
+  // Resend's test sender works only when the Resend account itself uses the same address.
+  const to = process.env.ENQUIRY_TO_EMAIL ?? CONTACT_EMAIL;
+  const from = process.env.ENQUIRY_FROM_EMAIL ?? "Sindy’s Dog Art <onboarding@resend.dev>";
 
-  if (!apiKey || !to || !from) {
+  if (!apiKey) {
     if (process.env.NODE_ENV !== "production") {
       console.info(`[commission] Email not configured; enquiry logged only:\n${body}`);
       return NextResponse.json({ ok: true });
     }
-    console.error("[commission] RESEND_API_KEY, ENQUIRY_TO_EMAIL or ENQUIRY_FROM_EMAIL is not set.");
+    console.error("[commission] RESEND_API_KEY is not set.");
     return NextResponse.json(
       { error: "Enquiries aren’t available right now. Please try again later." },
       { status: 503 }
@@ -117,21 +120,30 @@ export async function POST(request: Request) {
     }))
   );
 
-  const response = await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      from,
-      to: [to],
-      reply_to: enquiry.email,
-      subject: `Portrait enquiry: ${enquiry.dogName} (${enquiry.portraitType}, ${enquiry.size})`.replace(/[\r\n]+/g, " "),
-      text: body,
-      attachments,
-    }),
-  });
+  let response: Response;
+  try {
+    response = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from,
+        to: [to],
+        reply_to: enquiry.email,
+        subject: `Portrait enquiry: ${enquiry.dogName} (${enquiry.portraitType}, ${enquiry.size})`.replace(/[\r\n]+/g, " "),
+        text: body,
+        attachments,
+      }),
+    });
+  } catch (error) {
+    console.error("[commission] Could not reach Resend:", error);
+    return NextResponse.json(
+      { error: "We couldn’t send your enquiry. Please try again in a moment." },
+      { status: 502 }
+    );
+  }
 
   if (!response.ok) {
     console.error(`[commission] Resend responded ${response.status}: ${await response.text()}`);

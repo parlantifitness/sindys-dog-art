@@ -15,5 +15,8 @@ export const NAV_LINKS = [
   { href: "/faq", label: "FAQ" },
 ] as const;
 
+/** Business inbox: receives enquiries and data-protection requests. */
+export const CONTACT_EMAIL = "sindysdogart@gmail.com";
+
 export const COMMISSION_HREF = "/commission";
 export const COMMISSION_LABEL = "Commission a Portrait";
