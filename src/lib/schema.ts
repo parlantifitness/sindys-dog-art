@@ -1,7 +1,7 @@
 import type { GalleryItem } from "./gallery";
 import { HIGHEST_PRICE, LOWEST_PRICE } from "./policies";
 import { SIZES } from "./pricing";
-import { EXPERIENCE_YEARS, SITE } from "./site";
+import { EXPERIENCE_YEARS, SITE, TRUSTPILOT_URL } from "./site";
 
 export const ORG_ID = `${SITE.url}/#organization`;
 export const PERSON_ID = `${SITE.url}/#sindy`;
@@ -18,6 +18,7 @@ export function organizationSchema() {
     slogan: SITE.tagline,
     description: SITE.description,
     founder: { "@id": PERSON_ID },
+    sameAs: [TRUSTPILOT_URL],
     areaServed: { "@type": "Country", name: "United Kingdom" },
     knowsAbout: [
       "Custom dog portraits",

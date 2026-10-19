@@ -21,5 +21,9 @@ export const NAV_LINKS = [
 /** Business inbox: receives enquiries and data-protection requests. */
 export const CONTACT_EMAIL = "sindysdogart@gmail.com";
 
+/** Trustpilot profile (read reviews) and the invitation link customers use to write one. */
+export const TRUSTPILOT_URL = "https://uk.trustpilot.com/review/sindysdogart.com";
+export const TRUSTPILOT_REVIEW_URL = "https://uk.trustpilot.com/evaluate/sindysdogart.com";
+
 export const COMMISSION_HREF = "/commission";
 export const COMMISSION_LABEL = "Commission a Portrait";

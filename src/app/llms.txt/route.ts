@@ -1,7 +1,7 @@
 import { ALL_FAQS } from "@/lib/faq";
 import { KEY_FACTS } from "@/lib/policies";
 import { GUIDES } from "@/lib/guides";
-import { EXPERIENCE_YEARS, NAV_LINKS, SITE } from "@/lib/site";
+import { EXPERIENCE_YEARS, NAV_LINKS, SITE, TRUSTPILOT_URL } from "@/lib/site";
 
 const PAGE_NOTES: Record<string, string> = {
   "/gallery": "Finished oil portraits: memorial, gift and multi-pet.",
@@ -35,6 +35,7 @@ export function GET() {
     ),
     `- [Terms of commission](${SITE.url}/terms): payment, revisions, refunds, turnaround, shipping.`,
     `- [Privacy policy](${SITE.url}/privacy): how enquiry details and photos are handled.`,
+    `- [Customer reviews on Trustpilot](${TRUSTPILOT_URL}): independent reviews of Sindy’s Dog Art.`,
     ...(published.length
       ? ["", "## Guides", ...published.map((g) => `- [${g.title}](${SITE.url}/guides/${g.slug}): ${g.description}`)]
       : []),

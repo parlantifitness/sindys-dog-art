@@ -1,5 +1,11 @@
 import Link from "next/link";
-import { COMMISSION_HREF, COMMISSION_LABEL, NAV_LINKS, SITE } from "@/lib/site";
+import {
+  COMMISSION_HREF,
+  COMMISSION_LABEL,
+  NAV_LINKS,
+  SITE,
+  TRUSTPILOT_URL,
+} from "@/lib/site";
 import { Container } from "./Container";
 import { Logo } from "./Logo";
 
@@ -43,6 +49,17 @@ export function SiteFooter() {
           >
             {COMMISSION_LABEL}
           </Link>
+          <p className="mt-4 text-ink-soft">
+            <a
+              href={TRUSTPILOT_URL}
+              target="_blank"
+              rel="noopener"
+              className="underline decoration-sage underline-offset-4 hover:text-sage-deep"
+            >
+              Read our reviews on Trustpilot
+              <span className="sr-only"> (opens in a new tab)</span>
+            </a>
+          </p>
         </div>
       </Container>
       <Container className="mt-12 border-t border-line pt-6 text-center text-sm text-ink-soft">
