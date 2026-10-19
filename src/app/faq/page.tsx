@@ -41,13 +41,13 @@ export default function FaqPage() {
         <div className="mt-14 space-y-14">
           {FAQ_GROUPS.map((group) => (
             <section key={group.title} aria-labelledby={slug(group.title)}>
-              <h2 id={slug(group.title)} className="mb-6 text-4xl">
+              <h2 id={slug(group.title)} className="mb-6 text-4xl font-semibold sm:text-5xl">
                 {group.title}
               </h2>
               <dl className="divide-y divide-line border-y border-line">
                 {group.items.map((faq) => (
                   <div key={faq.question} className="py-6">
-                    <dt className="font-display text-2xl">{faq.question}</dt>
+                    <dt className="font-display text-3xl font-semibold leading-snug">{faq.question}</dt>
                     <dd className="mt-2 text-ink-soft">{faq.answer}</dd>
                   </div>
                 ))}
@@ -57,7 +57,7 @@ export default function FaqPage() {
         </div>
 
         <nav aria-label="Guides" className="mt-14">
-          <h2 className="mb-3 text-3xl">More in our guides</h2>
+          <h2 className="mb-3 text-4xl font-semibold">More in our guides</h2>
           <ul className="space-y-2">
             {GUIDES.map((guide) => (
               <li key={guide.slug}>

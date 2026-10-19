@@ -140,7 +140,7 @@ export default async function GuidePage(props: PageProps<"/guides/[slug]">) {
             <dl className="divide-y divide-line border-y border-line">
               {guide.faqs.map((faq) => (
                 <div key={faq.question} className="py-5">
-                  <dt className="font-display text-2xl">{faq.question}</dt>
+                  <dt className="font-display text-3xl font-semibold leading-snug">{faq.question}</dt>
                   <dd className="mt-2 text-ink-soft">{faq.answer}</dd>
                 </div>
               ))}
