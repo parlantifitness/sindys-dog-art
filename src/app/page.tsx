@@ -102,11 +102,11 @@ export default function HomePage() {
             Recent portraits
           </h2>
           <ul
-            className="grid items-center gap-6 sm:[grid-template-columns:var(--cols)]"
+            className="grid items-center gap-6 pb-8 sm:[grid-template-columns:var(--cols)]"
             style={
               {
                 "--cols": featured
-                  .map((item) => (item.featureAsPhoto && item.photo ? "1.5fr" : "1fr"))
+                  .map((item) => (item.featureAsPhoto && item.photo ? "1.29fr" : "1fr"))
                   .join(" "),
               } as React.CSSProperties
             }
@@ -115,7 +115,7 @@ export default function HomePage() {
               const both = item.featureAsPhoto && item.photo;
               return (
                 <li key={item.id}>
-                  <figure>
+                  <figure className="relative">
                     <ArtImage
                       src={both ? item.photo : item.painting}
                       alt={both ? item.photoAlt : item.paintingAlt}
@@ -125,7 +125,7 @@ export default function HomePage() {
                       sizes={both ? "(min-width: 640px) 45vw, 100vw" : "(min-width: 640px) 30vw, 100vw"}
                     />
                     {both ? (
-                      <figcaption className="mt-3 text-center text-sm text-ink-soft">
+                      <figcaption className="absolute inset-x-0 top-full mt-3 text-center text-sm text-ink-soft">
                         From photo to painting
                       </figcaption>
                     ) : null}
