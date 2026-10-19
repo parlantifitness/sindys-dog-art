@@ -19,9 +19,13 @@ export function SiteHeader() {
       >
         Skip to content
       </a>
-      <div className="mx-auto flex max-w-6xl flex-col items-center px-5 pb-3 pt-5 sm:px-8">
-        <Link href="/" aria-label="Sindy’s Dog Art, home" onClick={() => setOpen(false)}>
-          <Logo size="md" />
+      <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between px-5 py-3 sm:px-8">
+        <Link
+          href="/"
+          aria-label="Sindy’s Dog Art, home"
+          onClick={() => setOpen(false)}
+        >
+          <Logo size="xs" />
         </Link>
 
         <button
@@ -29,7 +33,7 @@ export function SiteHeader() {
           aria-expanded={open}
           aria-controls="site-nav"
           onClick={() => setOpen((v) => !v)}
-          className="mt-3 min-h-11 px-4 text-sm font-medium uppercase tracking-[0.18em] md:hidden"
+          className="-mr-3 min-h-11 px-3 text-sm font-medium uppercase tracking-[0.18em] xl:hidden"
         >
           {open ? "Close" : "Menu"}
         </button>
@@ -39,7 +43,7 @@ export function SiteHeader() {
           aria-label="Main"
           className={`${
             open ? "flex" : "hidden"
-          } w-full flex-col items-center gap-1 pb-3 pt-2 md:mt-3 md:flex md:w-auto md:flex-row md:gap-8 md:pb-0 md:pt-0`}
+          } w-full flex-col items-start gap-1 pb-3 pt-2 xl:flex xl:w-auto xl:flex-row xl:items-center xl:gap-6 xl:pb-0 xl:pt-0`}
         >
           {NAV_LINKS.map((link) => {
             const active =
@@ -50,7 +54,7 @@ export function SiteHeader() {
                 href={link.href}
                 aria-current={active ? "page" : undefined}
                 onClick={() => setOpen(false)}
-                className={`min-h-11 content-center border-b-2 text-sm uppercase tracking-[0.16em] transition-colors hover:text-sage-deep ${
+                className={`min-h-11 content-center border-b-2 text-sm uppercase tracking-[0.12em] transition-colors hover:text-sage-deep ${
                   active ? "border-sage text-ink" : "border-transparent text-ink-soft"
                 }`}
               >
@@ -61,7 +65,7 @@ export function SiteHeader() {
           <ButtonLink
             href={COMMISSION_HREF}
             onClick={() => setOpen(false)}
-            className="mt-2 min-h-11 px-5 py-2 md:ml-2 md:mt-0"
+            className="mt-2 min-h-11 px-5 py-2 xl:ml-1 xl:mt-0 xl:px-4"
           >
             {COMMISSION_LABEL}
           </ButtonLink>

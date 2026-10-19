@@ -3,7 +3,6 @@ import Link from "next/link";
 import { ArtImage } from "@/components/ArtImage";
 import { ButtonLink } from "@/components/ButtonLink";
 import { Container } from "@/components/Container";
-import { Logo } from "@/components/Logo";
 import { PricingGrid } from "@/components/PricingTable";
 import { getGalleryItems, type PortraitCategory } from "@/lib/gallery";
 import { COMMISSION_HREF, COMMISSION_LABEL, SITE } from "@/lib/site";
@@ -44,18 +43,9 @@ export default function HomePage() {
     <>
       <section className="border-b border-line bg-sage-soft/40 py-16 text-center sm:py-24">
         <Container narrow>
-          <h1>
-            <span className="sr-only">
-              Sindy’s Dog Art: hand-painted oil portraits of dogs.{" "}
-            </span>
-            <Logo size="lg" />
-          </h1>
-          <p
-            className="mt-8 font-script text-4xl text-sage-deep sm:text-6xl"
-            aria-label={SITE.tagline}
-          >
+          <h1 className="text-5xl leading-[1.05] sm:text-7xl">
             {SITE.tagline}
-          </p>
+          </h1>
           <p className="mx-auto mt-6 max-w-xl text-lg text-ink-soft">
             Custom oil portraits of dogs, hand-painted from your photos by an
             artist with over 20 years of experience. Painted to remember them

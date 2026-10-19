@@ -1,4 +1,5 @@
 const SIZES = {
+  xs: { mark: "h-5 w-7", text: "text-3xl" },
   sm: { mark: "h-6 w-9", text: "text-4xl" },
   md: { mark: "h-7 w-10", text: "text-5xl" },
   lg: { mark: "h-10 w-14", text: "text-7xl sm:text-8xl" },
