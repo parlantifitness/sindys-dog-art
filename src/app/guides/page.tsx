@@ -28,10 +28,10 @@ export default function GuidesPage() {
           {GUIDES.map((guide) => (
             <li key={guide.slug}>
               <article className="py-8">
-                <h2 className="text-3xl">
+                <h2 className="text-4xl font-semibold leading-tight sm:text-5xl">
                   <Link
                     href={`/guides/${guide.slug}`}
-                    className="hover:text-sage-deep"
+                    className="decoration-sage decoration-2 underline-offset-4 hover:text-sage-deep hover:underline"
                   >
                     {guide.title}
                   </Link>
