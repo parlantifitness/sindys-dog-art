@@ -26,6 +26,8 @@ export interface Guide {
   slug: string;
   /** The page heading (H1). */
   title: string;
+  /** Shorter title for the browser tab and search results (keep under ~45 characters; the site name is added). */
+  metaTitle?: string;
   /** Meta description. */
   description: string;
   /** A direct 40–60 word answer shown at the top and quoted by search and AI answers. */

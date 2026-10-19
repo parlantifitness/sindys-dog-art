@@ -21,6 +21,7 @@ import { PUBLISHED, sizeBullets } from "./shared";
 export const guide: Guide = {
   slug: "how-to-commission-a-dog-portrait-from-a-photo",
   title: "Hand-painted oil portrait of a dog from a photograph",
+  metaTitle: "Hand-painted dog portrait from a photograph",
   description:
     "How to commission a hand-painted oil portrait of your dog from a photograph: choosing photos and a size, approving the sketch, payment and UK delivery.",
   quickAnswer: `Send Sindy an enquiry with your best photos of your dog, choose a size (from ${formatPrice(LOWEST_PRICE)} for A5) and say whether the portrait is a memorial or a gift. She shares a sketch for your approval, paints your portrait in oils once you are happy, and ships it to your UK address. ${PAYMENT_SPLIT}`,

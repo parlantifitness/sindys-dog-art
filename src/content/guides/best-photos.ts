@@ -32,6 +32,7 @@ const HOW_TO_STEPS = [
 export const guide: Guide = {
   slug: "best-photos-for-a-dog-portrait",
   title: "Best photos to send for a dog portrait commission",
+  metaTitle: "Best photos for a dog portrait commission",
   description:
     "The best photos to send for a dog portrait commission: light, angle, focus and expression, plus what to avoid and what to do with old or imperfect photos.",
   quickAnswer: `The best photo for a dog portrait is sharp, taken in natural daylight at your dog’s eye level, with their face and eyes clearly visible. Send the original file rather than a screenshot. If you have a few good ones, send them all (the form takes up to ${MAX_PHOTOS}), because Sindy can work from more than one.`,

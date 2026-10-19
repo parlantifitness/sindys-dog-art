@@ -38,7 +38,7 @@ export async function generateMetadata(
   const guide = getGuide(slug);
   if (!guide) return {};
   const base = pageMetadata({
-    title: guide.title,
+    title: guide.metaTitle ?? guide.title,
     description: guide.description,
     path: `/guides/${guide.slug}`,
     // Drafts stay out of search results until the article is ready.

@@ -32,6 +32,7 @@ function budgetBullets(): string[] {
 export const guide: Guide = {
   slug: "how-much-does-a-custom-oil-dog-portrait-cost",
   title: "How much does a custom oil dog portrait cost?",
+  metaTitle: `Custom oil dog portrait cost, from £${LOWEST_PRICE}`,
   description:
     "How much a custom oil dog portrait costs: from-prices for A5, A4, A3 and Large, what fits your budget, what changes the price and how payment works.",
   quickAnswer: `Sindy’s custom oil dog portraits start from ${priceSummary()}. These are “from” prices. ${FINAL_PRICE_NOTE} ${PAYMENT_SPLIT}`,
