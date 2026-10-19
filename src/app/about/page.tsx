@@ -58,7 +58,7 @@ export default function AboutPage() {
       >
         <Container>
           <h2 id="dogs-heading" className="text-center text-4xl sm:text-5xl">
-            Meet Lulu, Milly &amp; Nellie
+            Meet Lulu, Millie &amp; Nellie
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-center text-ink-soft">
             Sindy’s own dogs, and the reason every portrait she paints starts
@@ -67,11 +67,16 @@ export default function AboutPage() {
           <ul className="mt-10 grid gap-6 sm:grid-cols-3">
             {DOG_PHOTOS.map((photo) => (
               <li key={photo.src}>
-                <ArtImage
-                  src={photo.src}
-                  alt={photo.alt}
-                  sizes="(min-width: 640px) 33vw, 100vw"
-                />
+                <figure>
+                  <ArtImage
+                    src={photo.src}
+                    alt={photo.alt}
+                    sizes="(min-width: 640px) 33vw, 100vw"
+                  />
+                  <figcaption className="mt-3 text-center font-display text-xl">
+                    {photo.caption}
+                  </figcaption>
+                </figure>
               </li>
             ))}
           </ul>

@@ -158,7 +158,7 @@ export default function HomePage() {
             </h2>
             <p className="mt-4 max-w-xl text-ink-soft">
               Sindy has been painting dogs for over 20 years, and has three of
-              her own: Lulu, Milly and Nellie.
+              her own: Lulu, Millie and Nellie.
             </p>
             <ul className="mt-6 grid max-w-md grid-cols-3 gap-3">
               {DOG_PHOTOS.map((photo) => (

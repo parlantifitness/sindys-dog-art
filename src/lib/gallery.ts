@@ -136,8 +136,8 @@ const DETAILS: Record<
     paintingAlt: "Oil painting of a West Highland white terrier lying in grass looking upwards",
   },
   "multi-pet-01": {
-    title: "Two friends in harnesses",
-    paintingAlt: "Oil painting of a French bulldog and a small scruffy terrier in matching red harnesses",
+    title: "Millie and Nellie",
+    paintingAlt: "Oil painting of Nellie the French bulldog and Millie the Yorkshire terrier in matching red harnesses",
   },
   "multi-pet-02": {
     title: "Spaniel and Yorkie",
