@@ -1,9 +1,11 @@
+import Link from "next/link";
 import { ButtonLink } from "@/components/ButtonLink";
 import { Container } from "@/components/Container";
 import { BreadcrumbJsonLd, JsonLd } from "@/components/JsonLd";
 import { KeyFacts } from "@/components/KeyFacts";
 import { PageHeader } from "@/components/PageHeader";
 import { ALL_FAQS, FAQ_GROUPS } from "@/lib/faq";
+import { GUIDES } from "@/lib/guides";
 import { pageMetadata } from "@/lib/seo";
 import { COMMISSION_HREF, COMMISSION_LABEL } from "@/lib/site";
 
@@ -53,6 +55,22 @@ export default function FaqPage() {
             </section>
           ))}
         </div>
+
+        <nav aria-label="Guides" className="mt-14">
+          <h2 className="mb-3 text-3xl">More in our guides</h2>
+          <ul className="space-y-2">
+            {GUIDES.map((guide) => (
+              <li key={guide.slug}>
+                <Link
+                  href={`/guides/${guide.slug}`}
+                  className="underline decoration-sage underline-offset-4 hover:text-sage-deep"
+                >
+                  {guide.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
 
         <div className="mt-16 text-center">
           <ButtonLink href={COMMISSION_HREF}>{COMMISSION_LABEL}</ButtonLink>

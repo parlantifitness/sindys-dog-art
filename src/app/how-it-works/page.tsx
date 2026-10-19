@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ArtImage } from "@/components/ArtImage";
 import { ButtonLink } from "@/components/ButtonLink";
 import { BreadcrumbJsonLd, JsonLdGraph } from "@/components/JsonLd";
@@ -6,14 +7,8 @@ import { Container } from "@/components/Container";
 import { PageHeader } from "@/components/PageHeader";
 import { PricingGrid } from "@/components/PricingTable";
 import { getGalleryItems } from "@/lib/gallery";
-import {
-  FINAL_PAYMENT,
-  NO_REVISIONS,
-  PAYMENT_SPLIT,
-  RUSH_NOTE,
-  SHIPPING,
-  TURNAROUND_TEXT,
-} from "@/lib/policies";
+import { RUSH_NOTE, TURNAROUND_TEXT } from "@/lib/policies";
+import { PROCESS_STEPS } from "@/lib/process";
 import { howToSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/seo";
 import { COMMISSION_HREF, COMMISSION_LABEL } from "@/lib/site";
@@ -24,33 +19,6 @@ export const metadata = pageMetadata({
     "From enquiry and sketch approval to painting, payment and UK shipping: how commissioning a custom hand-painted oil dog portrait from Sindy works.",
   path: "/how-it-works",
 });
-
-const STEPS = [
-  {
-    title: "Send your enquiry",
-    text: "Tell Sindy about your dog, share your photos and choose a size. Say whether the portrait is a memorial or a gift, and mention any deadline.",
-  },
-  {
-    title: "Approve the sketch",
-    text: "Sindy prepares a sketch or outline for your approval. You have two rounds of revisions at this stage, so it is the time to ask for any changes.",
-  },
-  {
-    title: "Painting begins",
-    text: `Once you have approved the sketch, Sindy paints your portrait in oils. ${NO_REVISIONS}`,
-  },
-  {
-    title: "Completion",
-    text: "When the painting is finished and dry, Sindy will let you know that your portrait is ready.",
-  },
-  {
-    title: "Payment",
-    text: `${PAYMENT_SPLIT} ${FINAL_PAYMENT}`,
-  },
-  {
-    title: "UK shipping",
-    text: `Your finished portrait is carefully packed and shipped to your UK address. ${SHIPPING}`,
-  },
-];
 
 export default function HowItWorksPage() {
   const example = getGalleryItems().find((item) => item.id === "gift-11");
@@ -65,7 +33,7 @@ export default function HowItWorksPage() {
 
       <Container narrow className="py-16">
         <ol className="space-y-10">
-          {STEPS.map((step, index) => (
+          {PROCESS_STEPS.map((step, index) => (
             <li key={step.title} className="flex gap-6">
               <span
                 aria-hidden="true"
@@ -80,6 +48,18 @@ export default function HowItWorksPage() {
             </li>
           ))}
         </ol>
+
+        <p className="mt-10 text-ink-soft">
+          New to commissioning a portrait? Read our{" "}
+          <Link href="/guides/how-to-commission-a-dog-portrait-from-a-photo" className="underline decoration-sage underline-offset-4 hover:text-sage-deep">
+            step-by-step guide
+          </Link>{" "}
+          or see{" "}
+          <Link href="/guides/how-much-does-a-custom-oil-dog-portrait-cost" className="underline decoration-sage underline-offset-4 hover:text-sage-deep">
+            how much a custom oil dog portrait costs
+          </Link>
+          .
+        </p>
 
         <KeyFacts />
 
@@ -133,7 +113,7 @@ export default function HowItWorksPage() {
         nodes={[
           howToSchema(
             "How to commission a hand-painted oil portrait of your dog",
-            STEPS.map((s) => ({ name: s.title, text: s.text }))
+            PROCESS_STEPS.map((s) => ({ name: s.title, text: s.text }))
           ),
         ]}
       />

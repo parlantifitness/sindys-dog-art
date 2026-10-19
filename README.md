@@ -58,6 +58,10 @@ Without them, enquiries are logged to the server console in development and reje
 
 Prices live in `src/lib/pricing.ts`. Every other business rule (payment split, revisions, refunds, shipping, turnaround, the expedited surcharge) lives in `src/lib/policies.ts`, and the FAQ, How It Works, Terms, commission form, structured data and `llms.txt` all read from it. **Never retype a price or policy in a page or guide; import it.** To change the typical turnaround, edit `TURNAROUND_ESTIMATE` (currently a placeholder estimate to confirm with Sindy).
 
+## Guides
+
+The five articles live in `src/content/guides/` as typed content (see `src/lib/guide-types.ts`). They quote prices, payment, revisions, refunds, shipping and turnaround by importing from `src/lib/policies.ts` and `src/lib/pricing.ts`, and the process steps from `src/lib/process.ts`; never retype those. Each guide has a quick-answer box, contents list, FAQs and Article/FAQ/HowTo structured data. A guide with `status: "draft"` is noindexed and left out of the sitemap.
+
 ## Search and AI visibility
 
 - Every page sets a title, description, canonical URL and a 1200×630 share image (`public/og/`). Regenerate those images, and `public/logo.png`, with `scripts/generate-og-images.py` (see the script header for the fonts it needs).
@@ -70,6 +74,5 @@ Prices live in `src/lib/pricing.ts`. Every other business rule (payment split, r
 Search the codebase for `PlaceholderNote` to find copy Sindy needs to write:
 
 - `src/lib/testimonials.ts`: 15 placeholder reviews (the page is `noindex` until they are real)
-- `src/lib/guides.ts`: five guide outlines (drafts are `noindex`; set `status: "published"` once written)
 - `src/app/about/page.tsx`: full bio
 - Turnaround time: currently “discuss with Sindy” (`src/lib/pricing.ts`)

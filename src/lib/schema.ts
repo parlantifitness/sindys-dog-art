@@ -127,3 +127,40 @@ export function imageGallerySchema(items: GalleryItem[]) {
       })),
   };
 }
+
+export function faqSchema(items: { question: string; answer: string }[]) {
+  return {
+    "@type": "FAQPage",
+    mainEntity: items.map((f) => ({
+      "@type": "Question",
+      name: f.question,
+      acceptedAnswer: { "@type": "Answer", text: f.answer },
+    })),
+  };
+}
+
+export function articleSchema(a: {
+  slug: string;
+  title: string;
+  description: string;
+  published: string;
+  updated: string;
+  image: string;
+  words: number;
+}) {
+  const url = abs(`/guides/${a.slug}`);
+  return {
+    "@type": "Article",
+    "@id": `${url}#article`,
+    headline: a.title,
+    description: a.description,
+    datePublished: a.published,
+    dateModified: a.updated,
+    inLanguage: "en-GB",
+    wordCount: a.words,
+    mainEntityOfPage: url,
+    image: [abs(a.image)],
+    author: { "@id": PERSON_ID },
+    publisher: { "@id": ORG_ID },
+  };
+}

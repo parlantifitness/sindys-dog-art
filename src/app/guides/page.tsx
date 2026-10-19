@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Container } from "@/components/Container";
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import { PageHeader } from "@/components/PageHeader";
+import { readingMinutes } from "@/lib/guide-types";
 import { GUIDES } from "@/lib/guides";
 import { pageMetadata } from "@/lib/seo";
 
@@ -36,11 +37,11 @@ export default function GuidesPage() {
                   </Link>
                 </h2>
                 <p className="mt-2 text-ink-soft">{guide.description}</p>
-                {guide.status === "draft" ? (
-                  <p className="mt-3 text-xs font-medium uppercase tracking-[0.2em] text-sage-deep">
-                    Coming soon
-                  </p>
-                ) : null}
+                <p className="mt-3 text-xs font-medium uppercase tracking-[0.2em] text-sage-deep">
+                  {guide.status === "draft"
+                    ? "Coming soon"
+                    : `${readingMinutes(guide)} min read`}
+                </p>
               </article>
             </li>
           ))}

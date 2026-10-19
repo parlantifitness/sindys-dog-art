@@ -160,7 +160,11 @@ export function CommissionForm() {
           <p id={id("photos-hint")} className="text-sm text-ink-soft">
             Clear, well-lit photos where their face is easy to see work best. Up
             to {MAX_PHOTOS}. We shrink them for upload; Sindy may ask for the
-            originals by email.
+            originals by email. Not sure which to send? See our guide to the{" "}
+            <Link href="/guides/best-photos-for-a-dog-portrait" className="underline hover:text-sage-deep">
+              best photos for a dog portrait
+            </Link>
+            .
           </p>
           <input
             id={id("photos")}
