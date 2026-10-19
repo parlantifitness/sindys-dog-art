@@ -102,12 +102,12 @@ def strips(paths, focuses):
     return build
 
 
-make("og-default", single("public/gallery/memorial-01.jpg", (0.5, 0.15)),
+make("og-default", single("public/gallery/hand-painted-fluffy-white-dog-blue-flowers-oil-portrait-memorial.jpg", (0.5, 0.15)),
      ["Every good dog", "deserves a masterpiece."], "Hand-painted oil dog portraits · UK")
-make("og-gallery", strips(["public/gallery/memorial-03.jpg", "public/gallery/gift-03.jpg", "public/gallery/gift-07.jpg"],
+make("og-gallery", strips(["public/gallery/hand-painted-rottweiler-oil-portrait-memorial.jpg", "public/gallery/hand-painted-blue-eyed-husky-oil-portrait-gift.jpg", "public/gallery/hand-painted-westie-oil-portrait-gift.jpg"],
                           [(0.37, 0.4), (0.5, 0.3), (0.45, 0.5)]),
      ["Portraits, painted", "with love."], "Memorial · Gift · Multi-pet")
-make("og-commission", single("public/gallery/gift-11-photo.jpg", (0.7, 0.5)),
+make("og-commission", single("public/gallery/hand-painted-french-bulldog-birthday-oil-portrait-gift-photo.jpg", (0.7, 0.5)),
      ["Commission a portrait", "of your dog."], "Painted from your photo · UK shipping", 42)
 
 # Square logo for structured data

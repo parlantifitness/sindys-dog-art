@@ -16,11 +16,23 @@ const A4 = SIZES.find((s) => s.id === "a4")!;
 const a4Rush = A4.from * (1 + RUSH_PERCENT / 100);
 const a4Half = A4.from / 2;
 
+/** “Around £200: A5 (from £95) or A4 (from £175)”, with each budget derived from an actual from-price. */
+function budgetBullets(): string[] {
+  return SIZES.map((size) => {
+    const budget = Math.ceil(size.from / 50) * 50;
+    const fits = SIZES.filter((s) => s.from <= budget).map(
+      (s) => `${s.name} (from ${money(s.from)})`
+    );
+    const list = fits.length > 1 ? `${fits.slice(0, -1).join(", ")} or ${fits[fits.length - 1]}` : fits[0];
+    return `**Around ${money(budget)}:** ${list}`;
+  });
+}
+
 export const guide: Guide = {
   slug: "how-much-does-a-custom-oil-dog-portrait-cost",
   title: "How much does a custom oil dog portrait cost?",
   description:
-    "What a custom oil dog portrait costs from Sindy’s Dog Art: from-prices for A5, A4, A3 and Large, what can change the final price, expedited turnaround and how payment works.",
+    "How much a custom oil dog portrait costs: from-prices for A5, A4, A3 and Large, what fits your budget, what changes the price and how payment works.",
   quickAnswer: `Sindy’s custom oil dog portraits start from ${priceSummary()}. These are “from” prices. ${FINAL_PRICE_NOTE} ${PAYMENT_SPLIT}`,
   published: PUBLISHED,
   updated: PUBLISHED,
@@ -37,6 +49,19 @@ export const guide: Guide = {
       blocks: [
         p("Every portrait is hand-painted in oils from your photos. Here are the four sizes and their from-prices."),
         pricing,
+      ],
+    },
+    {
+      id: "by-budget",
+      title: "Dog portrait on a budget: what each price covers",
+      blocks: [
+        p(
+          "If you have a budget in mind, here is which sizes start within it. Each line compares a budget with the from-price of each size."
+        ),
+        ul(...budgetBullets()),
+        p(
+          `These are starting prices, so the final cost can be higher than the from-price. ${FINAL_PRICE_NOTE} The enquiry form has an optional budget range, so tell Sindy what you would like to spend and she will say what is possible.`
+        ),
       ],
     },
     {

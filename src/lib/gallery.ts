@@ -59,9 +59,9 @@ export const CATEGORIES: readonly {
 const SLOTS_PER_CATEGORY = 0;
 
 /**
- * Optional per-image details, keyed by item id (e.g. "memorial-01").
- * Good alt text describes the dog and the painting, e.g.
- * "Oil painting of a golden retriever lying in long grass".
+ * Per-image details, keyed by the file name without its extension. The order here is the
+ * order paintings appear in the gallery (within each category); files not listed come last.
+ * Good alt text describes the dog and the painting.
  */
 const DETAILS: Record<
   string,
@@ -74,92 +74,92 @@ const DETAILS: Record<
     focus?: string;
   }
 > = {
-  "memorial-01": {
+  "hand-painted-fluffy-white-dog-blue-flowers-oil-portrait-memorial": {
     title: "White dog among blue flowers",
-    paintingAlt: "Oil painting of a fluffy white dog among blue flowers",
+    paintingAlt: "Hand-painted oil portrait of a fluffy white dog among blue flowers, painted as a memorial piece",
   },
-  "memorial-02": {
+  "hand-painted-german-shepherd-oil-portrait-memorial": {
     title: "German shepherd at the fence",
-    paintingAlt: "Oil painting of a German shepherd resting its paws on a wooden fence",
+    paintingAlt: "Hand-painted oil portrait of a German Shepherd resting its paws on a wooden fence, painted as a memorial piece",
   },
-  "memorial-03": {
+  "hand-painted-rottweiler-oil-portrait-memorial": {
     title: "Rottweiler in the meadow",
-    paintingAlt: "Oil painting of a Rottweiler in long grass with autumn trees behind",
+    paintingAlt: "Hand-painted oil portrait of a Rottweiler in long grass with autumn trees behind, painted as a memorial piece",
   },
-  "memorial-04": {
+  "hand-painted-black-and-white-spaniel-oil-portrait-memorial": {
     title: "Spaniel on blue",
-    paintingAlt: "Oil painting of a black and white spaniel with a happy open mouth against a blue background",
+    paintingAlt: "Hand-painted oil portrait of a black and white spaniel with a happy open mouth against a blue background, painted as a memorial piece",
   },
-  "memorial-05": {
+  "hand-painted-grey-wiry-coated-dog-oil-portrait-memorial": {
     title: "Wolfhound in profile",
-    paintingAlt: "Oil painting of a grey wiry-coated dog in a tartan collar looking to the side against a teal background",
+    paintingAlt: "Hand-painted oil portrait of a grey wiry-coated dog in a tartan collar looking to the side against a teal background, painted as a memorial piece",
   },
-  "memorial-06": {
+  "hand-painted-yorkshire-terrier-oil-portrait-memorial": {
     title: "Yorkshire terrier",
-    paintingAlt: "Oil painting of a Yorkshire terrier against an olive-gold background",
+    paintingAlt: "Hand-painted oil portrait of a Yorkshire Terrier against an olive-gold background, painted as a memorial piece",
   },
-  "memorial-07": {
+  "hand-painted-husky-surf-oil-portrait-memorial": {
     title: "Husky in the surf",
-    paintingAlt: "Oil painting of a husky in a harness splashing through waves between rocks",
+    paintingAlt: "Hand-painted oil portrait of a husky in a harness splashing through waves between rocks, painted as a memorial piece",
   },
-  "memorial-08": {
+  "hand-painted-black-cocker-spaniel-oil-portrait-memorial": {
     title: "Black cocker spaniel",
-    paintingAlt: "Oil painting of a black cocker spaniel sitting on a paved path, looking up with brown eyes",
+    paintingAlt: "Hand-painted oil portrait of a black cocker spaniel sitting on a paved path, looking up with brown eyes, painted as a memorial piece",
   },
-  "memorial-09": {
+  "hand-painted-cream-cocker-spaniel-oil-portrait-memorial": {
     title: "Cream cocker spaniel",
-    paintingAlt: "Oil painting of a cream cocker spaniel with long soft ears resting its paw, against a warm brown background",
+    paintingAlt: "Hand-painted oil portrait of a cream cocker spaniel with long soft ears resting its paw, against a warm brown background, painted as a memorial piece",
   },
-  "gift-08": {
-    title: "Jack Russell at home",
-    paintingAlt: "Oil painting of a Jack Russell terrier sitting up in a cosy room with a sofa and rug behind",
-  },
-  "gift-09": {
-    title: "Springer spaniel in the sun",
-    paintingAlt: "Oil painting of a liver and white springer spaniel lying on grass with its tongue out under a blue sky",
-  },
-  "gift-10": {
-    title: "Fawn dog on gold",
-    paintingAlt: "Oil painting of a fawn dog with a dark muzzle and soulful brown eyes against a golden-orange background",
-  },
-  "gift-01": {
-    title: "Black dog in a pink harness",
-    paintingAlt: "Oil painting of a black dog in a pink harness lying on sand",
-  },
-  "gift-02": {
-    title: "Black spaniel",
-    paintingAlt: "Oil painting of a black spaniel with a white chest and soulful brown eyes",
-  },
-  "gift-03": {
-    title: "Blue-eyed husky",
-    paintingAlt: "Oil painting of a grey and white husky with blue eyes against a blue background",
-  },
-  "gift-04": {
-    title: "Black Labrador puppy",
-    paintingAlt: "Oil painting of a young black Labrador stretching on a paved patio",
-  },
-  "gift-05": {
-    title: "Fluffy white dog",
-    paintingAlt: "Oil painting of a small cream-white dog with fluffy ears against a dark background",
-  },
-  "gift-06": {
-    title: "Black Labrador on the grass",
-    paintingAlt: "Oil painting of a smiling black Labrador sitting in a sunny field",
-  },
-  "gift-07": {
-    title: "Westie in the grass",
-    paintingAlt: "Oil painting of a West Highland white terrier lying in grass looking upwards",
-  },
-  "memorial-10": {
+  "hand-painted-black-poodle-oil-portrait-memorial": {
     title: "Black poodle",
-    paintingAlt: "Oil painting of a black poodle with curly fur tilting its head against a soft blue-grey background",
+    paintingAlt: "Hand-painted oil portrait of a black poodle with curly fur tilting its head against a soft blue-grey background, painted as a memorial piece",
   },
-  "gift-11": {
+  "hand-painted-black-dog-pink-harness-oil-portrait-gift": {
+    title: "Black dog in a pink harness",
+    paintingAlt: "Hand-painted oil portrait of a black dog in a pink harness lying on sand, painted as a gift portrait",
+  },
+  "hand-painted-black-spaniel-oil-portrait-gift": {
+    title: "Black spaniel",
+    paintingAlt: "Hand-painted oil portrait of a black spaniel with a white chest and soulful brown eyes, painted as a gift portrait",
+  },
+  "hand-painted-blue-eyed-husky-oil-portrait-gift": {
+    title: "Blue-eyed husky",
+    paintingAlt: "Hand-painted oil portrait of a grey and white husky with blue eyes against a blue background, painted as a gift portrait",
+  },
+  "hand-painted-black-labrador-puppy-oil-portrait-gift": {
+    title: "Black Labrador puppy",
+    paintingAlt: "Hand-painted oil portrait of a young black Labrador stretching on a paved patio, painted as a gift portrait",
+  },
+  "hand-painted-fluffy-white-dog-oil-portrait-gift": {
+    title: "Fluffy white dog",
+    paintingAlt: "Hand-painted oil portrait of a small cream-white dog with fluffy ears against a dark background, painted as a gift portrait",
+  },
+  "hand-painted-black-labrador-grass-oil-portrait-gift": {
+    title: "Black Labrador on the grass",
+    paintingAlt: "Hand-painted oil portrait of a smiling black Labrador sitting in a sunny field, painted as a gift portrait",
+  },
+  "hand-painted-westie-oil-portrait-gift": {
+    title: "Westie in the grass",
+    paintingAlt: "Hand-painted oil portrait of a West Highland White Terrier lying in grass looking upwards, painted as a gift portrait",
+  },
+  "hand-painted-jack-russell-oil-portrait-gift": {
+    title: "Jack Russell at home",
+    paintingAlt: "Hand-painted oil portrait of a Jack Russell Terrier sitting up in a cosy room with a sofa and rug behind, painted as a gift portrait",
+  },
+  "hand-painted-springer-spaniel-oil-portrait-gift": {
+    title: "Springer spaniel in the sun",
+    paintingAlt: "Hand-painted oil portrait of a liver and white springer spaniel lying on grass with its tongue out under a blue sky, painted as a gift portrait",
+  },
+  "hand-painted-fawn-dog-gold-background-oil-portrait-gift": {
+    title: "Fawn dog on gold",
+    paintingAlt: "Hand-painted oil portrait of a fawn dog with a dark muzzle and soulful brown eyes against a golden-orange background, painted as a gift portrait",
+  },
+  "hand-painted-french-bulldog-birthday-oil-portrait-gift": {
     title: "Birthday bulldog",
-    paintingAlt: "Oil painting of a fawn French bulldog in a blue star-patterned party hat resting its chin on a table beside a birthday cake with a candle",
+    paintingAlt: "Hand-painted oil portrait of a fawn French bulldog in a blue star-patterned party hat resting its chin on a table beside a birthday cake with a candle, painted as a gift portrait",
     photoLabel: "Compare",
     featureAsPhoto: true,
-    photoAlt: "The original reference photo of the bulldog beside the finished oil painting, showing how closely the portrait matches",
+    photoAlt: "Original reference photo of a French bulldog beside the finished hand-painted oil portrait, painted as a gift portrait, showing how closely the painting matches",
     focus: "center 12%",
   },
   "multi-pet-01": {
@@ -173,9 +173,13 @@ const DETAILS: Record<
 };
 
 /** The paintings shown, left to right, in “Recent portraits” on the home page. */
-const FEATURED_IDS = ["memorial-05", "gift-11", "multi-pet-01"];
+const FEATURED_IDS = ["hand-painted-grey-wiry-coated-dog-oil-portrait-memorial", "hand-painted-french-bulldog-birthday-oil-portrait-gift", "multi-pet-01"];
 
-const FILE_PATTERN = /^(memorial|gift|multi-pet)-(\d+)(-photo)?\.(jpe?g|png|webp|avif)$/i;
+const EXT = "(?:jpe?g|png|webp|avif)";
+/** hand-painted-{description}-oil-portrait-{category}[-photo].jpg */
+const NAMED_FILE = new RegExp(`^(hand-painted-.+-oil-portrait-(memorial|gift|multi-pet))(-photo)?\\.${EXT}$`, "i");
+/** {category}-{number}[-photo].jpg (simple numbered names) */
+const NUMBERED_FILE = new RegExp(`^((memorial|gift|multi-pet)-\\d+)(-photo)?\\.${EXT}$`, "i");
 
 const CATEGORY_LABEL: Record<PortraitCategory, string> = {
   memorial: "memorial",
@@ -204,29 +208,37 @@ function listGalleryFiles(): string[] {
 
 /**
  * Builds the gallery from files in /public/gallery named
- *   {category}-{number}.jpg         the finished painting
- *   {category}-{number}-photo.jpg   the original dog photo (optional)
- * where category is memorial, gift or multi-pet.
+ *   hand-painted-{description}-oil-portrait-{category}.jpg         the finished painting
+ *   hand-painted-{description}-oil-portrait-{category}-photo.jpg   the original dog photo (optional)
+ * where category is memorial, gift or multi-pet. Simple names such as multi-pet-01.jpg also work.
  */
 export function getGalleryItems(): GalleryItem[] {
-  const found = new Map<string, { painting?: string; photo?: string }>();
+  const found = new Map<string, { category: PortraitCategory; painting?: string; photo?: string }>();
 
   for (const file of listGalleryFiles()) {
-    const match = FILE_PATTERN.exec(file);
+    const named = NAMED_FILE.exec(file);
+    const numbered = named ? null : NUMBERED_FILE.exec(file);
+    const match = named ?? numbered;
     if (!match) continue;
-    const [, category, num, photoSuffix] = match;
-    const id = `${category.toLowerCase()}-${num.padStart(2, "0")}`;
-    const entry = found.get(id) ?? {};
-    entry[photoSuffix ? "photo" : "painting"] = `/gallery/${file}`;
+    const id = match[1].toLowerCase();
+    const category = match[2].toLowerCase() as PortraitCategory;
+    const entry = found.get(id) ?? { category };
+    entry[match[3] ? "photo" : "painting"] = `/gallery/${file}`;
     found.set(id, entry);
   }
+
+  const detailOrder = Object.keys(DETAILS);
+  const rank = (id: string) => {
+    const i = detailOrder.indexOf(id);
+    return i === -1 ? Number.MAX_SAFE_INTEGER : i;
+  };
 
   const items: GalleryItem[] = [];
 
   for (const { id: category } of CATEGORIES) {
     const real = [...found.entries()]
-      .filter(([id]) => id.startsWith(`${category}-`))
-      .sort(([a], [b]) => a.localeCompare(b, undefined, { numeric: true }));
+      .filter(([, files]) => files.category === category)
+      .sort(([a], [b]) => rank(a) - rank(b) || a.localeCompare(b, undefined, { numeric: true }));
 
     const count = Math.max(real.length, SLOTS_PER_CATEGORY);
     for (let i = 0; i < count; i++) {

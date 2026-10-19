@@ -32,7 +32,7 @@ export const guide: Guide = {
           "For many people, their dog is family. A hand-painted portrait of them is a gift nobody else will think of, and it is truly one of a kind: Sindy paints each one by hand in oils from your photos."
         ),
         painting(
-          "gift-11",
+          "hand-painted-french-bulldog-birthday-oil-portrait-gift",
           "A birthday portrait: the reference photo (left) beside the finished oil painting (right).",
           true
         ),
@@ -57,7 +57,7 @@ export const guide: Guide = {
         h3("A housewarming or “just because”"),
         p("You do not need an occasion. A portrait of someone’s dog is a lovely surprise at any time."),
         h3("A gesture of sympathy"),
-        p("If someone has lost a dog, a memorial portrait can be a thoughtful gift. See our guide to [dog memorial portrait ideas](/guides/dog-memorial-portrait-ideas)."),
+        p("If someone has lost a dog, a memorial portrait can be a thoughtful gift. See our guide to [memorial oil painting ideas for a dog](/guides/dog-memorial-portrait-ideas)."),
       ],
     },
     {
@@ -66,7 +66,7 @@ export const guide: Guide = {
       blocks: [
         p("You deal with Sindy directly, so the person receiving the portrait does not need to know anything until you give it to them."),
         ol(
-          "**Gather photos.** Ask family and friends, or look through your own pictures, for clear photos of the dog. Our guide to the [best photos for a dog portrait](/guides/best-photos-for-a-dog-portrait) can help.",
+          "**Gather photos.** Ask family and friends, or look through your own pictures, for clear photos of the dog. Our guide to the [best photos to send for a dog portrait commission](/guides/best-photos-for-a-dog-portrait) can help.",
           "**Send an enquiry.** Choose “Gift” on the form, add the occasion and any deadline, and say a little about the dog.",
           "**Approve the sketch.** You approve it on their behalf, with two rounds of revisions included at that stage.",
           "**Plan the delivery.** Your portrait is shipped to a UK address once it is complete and the final payment has been made. Talk to Sindy about where it should be sent."
@@ -88,7 +88,7 @@ export const guide: Guide = {
         ul(...sizeBullets()),
         p("If you are not sure, tell Sindy where the portrait is likely to go and she will help you choose."),
         painting(
-          "gift-08",
+          "hand-painted-jack-russell-oil-portrait-gift",
           "A hand-painted oil portrait: a Jack Russell terrier sitting up in a cosy room."
         ),
         cta("Ready to plan a gift? Tell Sindy about the dog and the occasion."),

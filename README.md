@@ -31,15 +31,15 @@ Colours and fonts are defined in `src/app/globals.css` and `src/app/layout.tsx`.
 Drop files into `public/gallery/` named:
 
 ```
-memorial-01.jpg          finished painting
-memorial-01-photo.jpg    original dog photo (optional, enables the Painting / Photo toggle)
-gift-01.jpg
-multi-pet-01.jpg
+hand-painted-german-shepherd-oil-portrait-memorial.jpg         finished painting
+hand-painted-german-shepherd-oil-portrait-memorial-photo.jpg   original dog photo (optional, enables the Painting / Photo toggle)
+hand-painted-westie-oil-portrait-gift.jpg
+multi-pet-01.jpg                                                (simple numbered names also work)
 ```
 
 Categories are `memorial`, `gift` and `multi-pet`. JPG, PNG, WebP and AVIF work. Paintings are shown at their natural proportions (no cropping). A category with no paintings is hidden; to show empty “coming soon” frames instead, raise `SLOTS_PER_CATEGORY` in `src/lib/gallery.ts`.
 
-For good SEO, give each image proper alt text and a title in the `DETAILS` map in `src/lib/gallery.ts`.
+Descriptive file names help image search: use the breed only when you are sure of it, otherwise a plain description (`hand-painted-fluffy-white-dog-oil-portrait-gift.jpg`). Add a title and alt text for each file in the `DETAILS` map in `src/lib/gallery.ts` (keyed by file name without the extension); the order of that map is the gallery order. If you rename a file, add a redirect for the old URL to `LEGACY_GALLERY_IMAGES` in `next.config.ts`.
 
 ## Enquiry form
 

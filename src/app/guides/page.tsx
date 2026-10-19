@@ -9,7 +9,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata({
   title: "Guides to Dog Portraits",
   description:
-    "Guides to commissioning a hand-painted dog portrait: choosing photos, memorial portrait ideas, gift ideas and what a custom oil portrait costs.",
+    "Guides to commissioning a hand-painted oil dog portrait from a photograph: the best photos to send, memorial painting ideas, gift ideas and costs.",
   path: "/guides",
 });
 

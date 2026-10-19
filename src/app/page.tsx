@@ -11,7 +11,7 @@ import { COMMISSION_HREF, COMMISSION_LABEL, SITE } from "@/lib/site";
 export const metadata: Metadata = {
   title: { absolute: `${SITE.name} | Hand-Painted Oil Dog Portraits, UK` },
   description:
-    "Custom hand-painted oil portraits of dogs by Sindy, with over 20 years of experience. Memorial and gift portraits painted from your photos and shipped across the UK.",
+    "Hand-painted oil dog portraits by Sindy, a UK artist with over 20 years’ experience. Memorial and gift portraits from your photos, shipped across the UK.",
   alternates: { canonical: "/" },
 };
 

@@ -162,7 +162,7 @@ export function CommissionForm() {
             to {MAX_PHOTOS}. We shrink them for upload; Sindy may ask for the
             originals by email. Not sure which to send? See our guide to the{" "}
             <Link href="/guides/best-photos-for-a-dog-portrait" className="underline hover:text-sage-deep">
-              best photos for a dog portrait
+              best photos to send for a dog portrait commission
             </Link>
             .
           </p>

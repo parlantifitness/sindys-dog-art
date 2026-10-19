@@ -9,7 +9,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata({
   title: "Commission a Dog Portrait",
   description:
-    `Commission a hand-painted oil portrait of your dog. Share your photo, choose a size from A5 (from £${LOWEST_PRICE}) to Large (from £${HIGHEST_PRICE}) and tell Sindy about your memorial or gift portrait.`,
+    `Commission a hand-painted oil portrait of your dog from your photo. Sizes from £${LOWEST_PRICE} (A5) to £${HIGHEST_PRICE} (Large); memorial, gift and multi-pet portraits, UK shipping.`,
   path: "/commission",
   image: "/og/og-commission.jpg",
 });

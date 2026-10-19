@@ -21,7 +21,7 @@ export const metadata = pageMetadata({
 });
 
 export default function HowItWorksPage() {
-  const example = getGalleryItems().find((item) => item.id === "gift-11");
+  const example = getGalleryItems().find((item) => item.id === "hand-painted-french-bulldog-birthday-oil-portrait-gift");
   return (
     <>
       <PageHeader eyebrow="The process" title="How it works">

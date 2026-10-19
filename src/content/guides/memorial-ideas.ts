@@ -12,9 +12,9 @@ import { PUBLISHED } from "./shared";
 
 export const guide: Guide = {
   slug: "dog-memorial-portrait-ideas",
-  title: "Dog memorial portrait ideas",
+  title: "Memorial oil painting ideas for a dog",
   description:
-    "Thoughtful ideas for a memorial portrait of a much-loved dog: favourite places, treasured collars, the right photo, remembering pets together, and giving one as a gift.",
+    "Memorial oil painting ideas for a dog: favourite places, treasured collars, choosing the right photo, remembering pets together and giving one as a gift.",
   quickAnswer:
     "A dog memorial portrait is a hand-painted oil portrait that keeps your dog’s face and personality close. Ideas include painting them in a favourite place, wearing a treasured collar, or in the expression you remember best. Choose the photo that looks most like them to you, and Sindy will paint from the photos you send.",
   published: PUBLISHED,
@@ -28,7 +28,7 @@ export const guide: Guide = {
   sections: [
     {
       id: "what-is-a-memorial-portrait",
-      title: "What is a dog memorial portrait?",
+      title: "What is a dog memorial oil painting?",
       blocks: [
         p(
           "A memorial portrait is a painting made in memory of a dog who has passed away. Sindy paints each one by hand in oils from the photos you send, so you do not need anything more than the pictures you already have."
@@ -37,7 +37,7 @@ export const guide: Guide = {
           "There is no right or wrong way to remember a dog, and no right time to do it. Some people commission a portrait soon after their loss. Others wait months or years, when they are ready. The ideas below are here to help you think about what would feel most like them."
         ),
         painting(
-          "memorial-01",
+          "hand-painted-fluffy-white-dog-blue-flowers-oil-portrait-memorial",
           "A hand-painted oil portrait: a fluffy white dog among blue flowers."
         ),
       ],
@@ -67,7 +67,7 @@ export const guide: Guide = {
           "If your dog lived with another pet, you may want to remember them side by side. Sindy paints multi-pet portraits too. Choose “Multi-pet” on the enquiry form and tell her about your pets."
         ),
         painting(
-          "memorial-09",
+          "hand-painted-cream-cocker-spaniel-oil-portrait-memorial",
           "A hand-painted oil portrait: a cream cocker spaniel with long, soft ears."
         ),
         h3("Keep it small, or make it a centrepiece"),
@@ -90,7 +90,7 @@ export const guide: Guide = {
           "If your photos are old prints, scan them or photograph them flat in daylight, without glare."
         ),
         p(
-          "Our guide to the [best photos to use for a dog portrait](/guides/best-photos-for-a-dog-portrait) has more detail, including what to do with old or imperfect photos."
+          "Our guide to the [best photos to send for a dog portrait commission](/guides/best-photos-for-a-dog-portrait) has more detail, including what to do with old or imperfect photos."
         ),
       ],
     },

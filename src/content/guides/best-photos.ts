@@ -31,9 +31,9 @@ const HOW_TO_STEPS = [
 
 export const guide: Guide = {
   slug: "best-photos-for-a-dog-portrait",
-  title: "Best photos to use for a dog portrait",
+  title: "Best photos to send for a dog portrait commission",
   description:
-    "How to choose or take the best photo of your dog for a painted portrait: light, angle, focus and expression, plus what to avoid and what to do with old photos.",
+    "The best photos to send for a dog portrait commission: light, angle, focus and expression, plus what to avoid and what to do with old or imperfect photos.",
   quickAnswer: `The best photo for a dog portrait is sharp, taken in natural daylight at your dog’s eye level, with their face and eyes clearly visible. Send the original file rather than a screenshot. If you have a few good ones, send them all (the form takes up to ${MAX_PHOTOS}), because Sindy can work from more than one.`,
   published: PUBLISHED,
   updated: PUBLISHED,
@@ -53,7 +53,7 @@ export const guide: Guide = {
           "Sindy paints from your photos, so the photo decides how much she has to work with: the shape of your dog’s face, the colour and texture of their coat, and the look in their eyes. It does not need to be a professional photo. A clear phone picture in good light is often all it takes."
         ),
         p(
-          "If you are still deciding whether to commission a portrait, our guide to [how to commission a dog portrait from a photo](/guides/how-to-commission-a-dog-portrait-from-a-photo) walks through the whole process."
+          "If you are still deciding whether to commission a portrait, our guide to [hand-painted oil portrait of a dog from a photograph](/guides/how-to-commission-a-dog-portrait-from-a-photo) walks through the whole process."
         ),
       ],
     },
@@ -134,7 +134,7 @@ export const guide: Guide = {
           "If your photo is a print, scan it, or photograph it flat in daylight without glare. Tell Sindy what you remember about the colours and details, and she will talk through what is possible."
         ),
         note(
-          "If you are thinking about a memorial portrait, our guide to [dog memorial portrait ideas](/guides/dog-memorial-portrait-ideas) has more on choosing the right photo.",
+          "If you are thinking about a memorial portrait, our guide to [memorial oil painting ideas for a dog](/guides/dog-memorial-portrait-ideas) has more on choosing the right photo.",
           "Planning a memorial?"
         ),
       ],

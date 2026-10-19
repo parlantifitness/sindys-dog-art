@@ -19,9 +19,9 @@ import { PUBLISHED, sizeBullets } from "./shared";
 
 export const guide: Guide = {
   slug: "how-to-commission-a-dog-portrait-from-a-photo",
-  title: "How to commission a dog portrait from a photo",
+  title: "Hand-painted oil portrait of a dog from a photograph",
   description:
-    "A step-by-step guide to commissioning a hand-painted oil portrait of your dog from a photo, from first enquiry and sketch approval to payment and UK delivery.",
+    "How to commission a hand-painted oil portrait of your dog from a photograph: choosing photos and a size, approving the sketch, payment and UK delivery.",
   quickAnswer: `Send Sindy an enquiry with your best photos of your dog, choose a size (from ${formatPrice(LOWEST_PRICE)} for A5) and say whether the portrait is a memorial or a gift. She shares a sketch for your approval, paints your portrait in oils once you are happy, and ships it to your UK address. ${PAYMENT_SPLIT}`,
   published: PUBLISHED,
   updated: PUBLISHED,
@@ -44,10 +44,10 @@ export const guide: Guide = {
           "A commissioned dog portrait is a one-of-a-kind painting made specially for you. Sindy, a UK artist who has been painting dogs for over 20 years, paints each portrait by hand in oils from the photos you send. Your dog does not need to sit for her, and she works with customers across the UK."
         ),
         p(
-          "People usually commission a portrait for one of two reasons. A **memorial portrait** keeps a much-loved dog close after they have passed. A **gift portrait** marks a birthday, Christmas, an anniversary or another occasion. You can also ask for a **multi-pet portrait** with two or more companions in one painting. For ideas, see [dog memorial portrait ideas](/guides/dog-memorial-portrait-ideas) and [dog portrait gift ideas](/guides/dog-portrait-gift-ideas)."
+          "People usually commission a portrait for one of two reasons. A **memorial portrait** keeps a much-loved dog close after they have passed. A **gift portrait** marks a birthday, Christmas, an anniversary or another occasion. You can also ask for a **multi-pet portrait** with two or more companions in one painting. For ideas, see [memorial oil painting ideas for a dog](/guides/dog-memorial-portrait-ideas) and [dog portrait gift ideas](/guides/dog-portrait-gift-ideas)."
         ),
         painting(
-          "gift-11",
+          "hand-painted-french-bulldog-birthday-oil-portrait-gift",
           "From photo to painting: a reference photo (left) beside the finished oil portrait (right).",
           true
         ),
@@ -71,7 +71,7 @@ export const guide: Guide = {
           `Your photo is the starting point for the whole painting, so it is worth a few minutes to choose well. Look for a clear, sharp picture in good light where your dog’s face and eyes are easy to see. The enquiry form takes up to ${MAX_PHOTOS} photos, and Sindy can work from more than one, so send your favourites.`
         ),
         p(
-          "Our guide to the [best photos to use for a dog portrait](/guides/best-photos-for-a-dog-portrait) explains what works and what to avoid. The form shrinks photos so they upload quickly, so Sindy may ask you for the originals by email."
+          "Our guide to the [best photos to send for a dog portrait commission](/guides/best-photos-for-a-dog-portrait) explains what works and what to avoid. The form shrinks photos so they upload quickly, so Sindy may ask you for the originals by email."
         ),
       ],
     },
