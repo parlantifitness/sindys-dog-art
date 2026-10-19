@@ -101,17 +101,38 @@ export default function HomePage() {
           >
             Recent portraits
           </h2>
-          <ul className="grid gap-6 sm:grid-cols-3">
-            {featured.map((item) => (
-              <li key={item.id}>
-                <ArtImage
-                  src={item.painting}
-                  alt={item.paintingAlt}
-                  objectPosition={item.focus}
-                  sizes="(min-width: 640px) 33vw, 100vw"
-                />
-              </li>
-            ))}
+          <ul
+            className="grid items-center gap-6 sm:[grid-template-columns:var(--cols)]"
+            style={
+              {
+                "--cols": featured
+                  .map((item) => (item.featureAsPhoto && item.photo ? "1.5fr" : "1fr"))
+                  .join(" "),
+              } as React.CSSProperties
+            }
+          >
+            {featured.map((item) => {
+              const both = item.featureAsPhoto && item.photo;
+              return (
+                <li key={item.id}>
+                  <figure>
+                    <ArtImage
+                      src={both ? item.photo : item.painting}
+                      alt={both ? item.photoAlt : item.paintingAlt}
+                      width={both ? item.photoWidth : undefined}
+                      height={both ? item.photoHeight : undefined}
+                      objectPosition={item.focus}
+                      sizes={both ? "(min-width: 640px) 45vw, 100vw" : "(min-width: 640px) 30vw, 100vw"}
+                    />
+                    {both ? (
+                      <figcaption className="mt-3 text-center text-sm text-ink-soft">
+                        From photo to painting
+                      </figcaption>
+                    ) : null}
+                  </figure>
+                </li>
+              );
+            })}
           </ul>
           <p className="mt-10 text-center">
             <Link

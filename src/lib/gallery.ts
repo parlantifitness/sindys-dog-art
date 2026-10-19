@@ -21,6 +21,8 @@ export interface GalleryItem {
   photoLabel?: string;
   paintingAlt: string;
   photoAlt: string;
+  /** On the home page strip, show the photo-beside-painting shot instead of the painting alone. */
+  featureAsPhoto?: boolean;
   /** CSS object-position used when the painting is cropped to a fixed frame (e.g. home page strip). */
   focus?: string;
 }
@@ -68,6 +70,7 @@ const DETAILS: Record<
     paintingAlt?: string;
     photoAlt?: string;
     photoLabel?: string;
+    featureAsPhoto?: boolean;
     focus?: string;
   }
 > = {
@@ -155,6 +158,7 @@ const DETAILS: Record<
     title: "Birthday bulldog",
     paintingAlt: "Oil painting of a fawn French bulldog in a blue star-patterned party hat resting its chin on a table beside a birthday cake with a candle",
     photoLabel: "Compare",
+    featureAsPhoto: true,
     photoAlt: "The original reference photo of the bulldog beside the finished oil painting, showing how closely the portrait matches",
     focus: "center 12%",
   },
@@ -245,6 +249,7 @@ export function getGalleryItems(): GalleryItem[] {
             )
           : {}),
         photoLabel: detail.photoLabel,
+        featureAsPhoto: detail.featureAsPhoto,
         paintingAlt:
           detail.paintingAlt ??
           `Hand-painted oil portrait of a dog (${label} commission)`,
