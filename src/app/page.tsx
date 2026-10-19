@@ -35,6 +35,14 @@ const OCCASIONS: {
   },
 ];
 
+/** Width ÷ height of the image shown for an item; used to size the strip so all images share one height. */
+function aspect(item: ReturnType<typeof getFeaturedItems>[number]): number {
+  const both = item.featureAsPhoto && item.photo;
+  const w = both ? item.photoWidth : item.width;
+  const h = both ? item.photoHeight : item.height;
+  return w && h ? w / h : 0.8;
+}
+
 export default function HomePage() {
   const featured = getFeaturedItems();
 
@@ -106,7 +114,7 @@ export default function HomePage() {
             style={
               {
                 "--cols": featured
-                  .map((item) => (item.featureAsPhoto && item.photo ? "1.29fr" : "1fr"))
+                  .map((item) => `${aspect(item).toFixed(3)}fr`)
                   .join(" "),
               } as React.CSSProperties
             }
@@ -119,9 +127,8 @@ export default function HomePage() {
                     <ArtImage
                       src={both ? item.photo : item.painting}
                       alt={both ? item.photoAlt : item.paintingAlt}
-                      width={both ? item.photoWidth : undefined}
-                      height={both ? item.photoHeight : undefined}
-                      objectPosition={item.focus}
+                      width={both ? item.photoWidth : item.width}
+                      height={both ? item.photoHeight : item.height}
                       sizes={both ? "(min-width: 640px) 45vw, 100vw" : "(min-width: 640px) 30vw, 100vw"}
                     />
                     {both ? (

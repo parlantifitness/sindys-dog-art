@@ -173,7 +173,7 @@ const DETAILS: Record<
 };
 
 /** The paintings shown, left to right, in “Recent portraits” on the home page. */
-const FEATURED_IDS = ["gift-08", "gift-11", "multi-pet-01"];
+const FEATURED_IDS = ["memorial-05", "gift-11", "multi-pet-01"];
 
 const FILE_PATTERN = /^(memorial|gift|multi-pet)-(\d+)(-photo)?\.(jpe?g|png|webp|avif)$/i;
 
