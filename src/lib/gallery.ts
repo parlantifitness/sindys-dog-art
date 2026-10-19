@@ -87,6 +87,26 @@ const DETAILS: Record<
     title: "Husky in the surf",
     paintingAlt: "Oil painting of a husky in a harness splashing through waves between rocks",
   },
+  "memorial-08": {
+    title: "Black cocker spaniel",
+    paintingAlt: "Oil painting of a black cocker spaniel sitting on a paved path, looking up with brown eyes",
+  },
+  "memorial-09": {
+    title: "Cream cocker spaniel",
+    paintingAlt: "Oil painting of a cream cocker spaniel with long soft ears resting its paw, against a warm brown background",
+  },
+  "gift-08": {
+    title: "Jack Russell at home",
+    paintingAlt: "Oil painting of a Jack Russell terrier sitting up in a cosy room with a sofa and rug behind",
+  },
+  "gift-09": {
+    title: "Springer spaniel in the sun",
+    paintingAlt: "Oil painting of a liver and white springer spaniel lying on grass with its tongue out under a blue sky",
+  },
+  "gift-10": {
+    title: "Fawn dog on gold",
+    paintingAlt: "Oil painting of a fawn dog with a dark muzzle and soulful brown eyes against a golden-orange background",
+  },
   "gift-01": {
     title: "Black dog in a pink harness",
     paintingAlt: "Oil painting of a black dog in a pink harness lying on sand",
