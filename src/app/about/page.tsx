@@ -39,8 +39,8 @@ export default function AboutPage() {
           <h2 className="text-4xl text-ink">Painting dogs for over 20 years</h2>
           <p>
             I have loved art for as long as I can remember. I studied it at
-            school and went to art classes with the lovely Michael Collins, who
-            was a real inspiration to me.
+            school and then for years at art school, and I went to art classes
+            with a teacher who was a real inspiration to me.
           </p>
           <p>
             I have always been a dog lover, so I started by painting my own
