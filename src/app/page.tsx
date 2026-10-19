@@ -35,8 +35,9 @@ const OCCASIONS: {
 ];
 
 export default function HomePage() {
-  const featured = (["memorial", "gift", "multi-pet"] as const).map(
-    (category) => getGalleryItems().find((item) => item.category === category)!
+  const items = getGalleryItems();
+  const featured = (["memorial", "gift", "multi-pet"] as const).flatMap(
+    (category) => items.find((item) => item.category === category) ?? []
   );
 
   return (

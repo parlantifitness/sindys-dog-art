@@ -37,7 +37,7 @@ gift-01.jpg
 multi-pet-01.jpg
 ```
 
-Categories are `memorial`, `gift` and `multi-pet`. JPG, PNG, WebP and AVIF work. Each category shows empty frames until it has `SLOTS_PER_CATEGORY` (10) real paintings; set that to `0` in `src/lib/gallery.ts` to show only finished work.
+Categories are `memorial`, `gift` and `multi-pet`. JPG, PNG, WebP and AVIF work. Paintings are shown at their natural proportions (no cropping). A category with no paintings is hidden; to show empty “coming soon” frames instead, raise `SLOTS_PER_CATEGORY` in `src/lib/gallery.ts`.
 
 For good SEO, give each image proper alt text and a title in the `DETAILS` map in `src/lib/gallery.ts`.
 
@@ -60,5 +60,5 @@ Search the codebase for `PlaceholderNote` to find copy Sindy needs to write:
 
 - `src/lib/testimonials.ts`: 15 placeholder reviews (the page is `noindex` until they are real)
 - `src/lib/guides.ts`: five guide outlines (drafts are `noindex`; set `status: "published"` once written)
-- `src/app/about/page.tsx`: full bio and a photo of Sindy
+- `src/app/about/page.tsx`: full bio; add a photo of Sindy as `public/about/sindy.jpg` and it appears automatically
 - Turnaround time: currently “discuss with Sindy” (`src/lib/pricing.ts`)

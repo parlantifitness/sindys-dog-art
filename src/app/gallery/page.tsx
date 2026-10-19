@@ -16,6 +16,9 @@ export const metadata = pageMetadata({
 
 export default function GalleryPage() {
   const items = getGalleryItems();
+  const categories = CATEGORIES.filter((category) =>
+    items.some((item) => item.category === category.id)
+  );
 
   return (
     <>
@@ -30,7 +33,7 @@ export default function GalleryPage() {
       <Container className="py-12">
         <nav aria-label="Gallery sections">
           <ul className="flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm uppercase tracking-[0.16em]">
-            {CATEGORIES.map((category) => (
+            {categories.map((category) => (
               <li key={category.id}>
                 <Link
                   href={`#${category.id}`}
@@ -43,7 +46,7 @@ export default function GalleryPage() {
           </ul>
         </nav>
 
-        {CATEGORIES.map((category) => (
+        {categories.map((category) => (
           <section
             key={category.id}
             id={category.id}
@@ -59,11 +62,11 @@ export default function GalleryPage() {
             <p className="mx-auto mb-10 mt-3 max-w-2xl text-center text-ink-soft">
               {category.intro}
             </p>
-            <ul className="grid grid-cols-2 gap-x-4 gap-y-8 md:grid-cols-3 lg:grid-cols-4 lg:gap-x-6">
+            <ul className="columns-2 gap-x-4 md:columns-3 lg:columns-4 lg:gap-x-6">
               {items
                 .filter((item) => item.category === category.id)
                 .map((item) => (
-                  <li key={item.id}>
+                  <li key={item.id} className="mb-8 break-inside-avoid">
                     <GalleryCard item={item} />
                   </li>
                 ))}

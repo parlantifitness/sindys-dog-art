@@ -1,5 +1,6 @@
-import { readdirSync } from "node:fs";
+import { readdirSync, readFileSync } from "node:fs";
 import path from "node:path";
+import { imageSize } from "image-size";
 
 export type PortraitCategory = "memorial" | "gift" | "multi-pet";
 
@@ -11,6 +12,9 @@ export interface GalleryItem {
   painting?: string;
   /** Public path of the original dog photo. Optional; enables the painting / photo toggle. */
   photo?: string;
+  /** Natural pixel size of the painting, so it can be shown uncropped. */
+  width?: number;
+  height?: number;
   paintingAlt: string;
   photoAlt: string;
 }
@@ -41,10 +45,10 @@ export const CATEGORIES: readonly {
 ];
 
 /**
- * How many frames each category shows while it has fewer real paintings than this.
- * Set to 0 before launch if you would rather show only finished work.
+ * Empty “coming soon” frames to show in a category until it has this many real paintings.
+ * 0 shows finished work only (and hides a category that has none yet).
  */
-const SLOTS_PER_CATEGORY = 10;
+const SLOTS_PER_CATEGORY = 0;
 
 /**
  * Optional per-image details, keyed by item id (e.g. "memorial-01").
@@ -54,7 +58,72 @@ const SLOTS_PER_CATEGORY = 10;
 const DETAILS: Record<
   string,
   { title?: string; paintingAlt?: string; photoAlt?: string }
-> = {};
+> = {
+  "memorial-01": {
+    title: "White dog among blue flowers",
+    paintingAlt: "Oil painting of a fluffy white dog among blue flowers",
+  },
+  "memorial-02": {
+    title: "German shepherd at the fence",
+    paintingAlt: "Oil painting of a German shepherd resting its paws on a wooden fence",
+  },
+  "memorial-03": {
+    title: "Rottweiler in the meadow",
+    paintingAlt: "Oil painting of a Rottweiler in long grass with autumn trees behind",
+  },
+  "memorial-04": {
+    title: "Spaniel on blue",
+    paintingAlt: "Oil painting of a black and white spaniel with a happy open mouth against a blue background",
+  },
+  "memorial-05": {
+    title: "Wolfhound in profile",
+    paintingAlt: "Oil painting of a grey wiry-coated dog in a tartan collar looking to the side against a teal background",
+  },
+  "memorial-06": {
+    title: "Yorkshire terrier",
+    paintingAlt: "Oil painting of a Yorkshire terrier against an olive-gold background",
+  },
+  "memorial-07": {
+    title: "Husky in the surf",
+    paintingAlt: "Oil painting of a husky in a harness splashing through waves between rocks",
+  },
+  "gift-01": {
+    title: "Black dog in a pink harness",
+    paintingAlt: "Oil painting of a black dog in a pink harness lying on sand",
+  },
+  "gift-02": {
+    title: "Black spaniel",
+    paintingAlt: "Oil painting of a black spaniel with a white chest and soulful brown eyes",
+  },
+  "gift-03": {
+    title: "Blue-eyed husky",
+    paintingAlt: "Oil painting of a grey and white husky with blue eyes against a blue background",
+  },
+  "gift-04": {
+    title: "Black Labrador puppy",
+    paintingAlt: "Oil painting of a young black Labrador stretching on a paved patio",
+  },
+  "gift-05": {
+    title: "Fluffy white dog",
+    paintingAlt: "Oil painting of a small cream-white dog with fluffy ears against a dark background",
+  },
+  "gift-06": {
+    title: "Black Labrador on the grass",
+    paintingAlt: "Oil painting of a smiling black Labrador sitting in a sunny field",
+  },
+  "gift-07": {
+    title: "Westie in the grass",
+    paintingAlt: "Oil painting of a West Highland white terrier lying in grass looking upwards",
+  },
+  "multi-pet-01": {
+    title: "Two friends in harnesses",
+    paintingAlt: "Oil painting of a French bulldog and a small scruffy terrier in matching red harnesses",
+  },
+  "multi-pet-02": {
+    title: "Spaniel and Yorkie",
+    paintingAlt: "Oil painting of a black spaniel and a Yorkshire terrier lying together",
+  },
+};
 
 const FILE_PATTERN = /^(memorial|gift|multi-pet)-(\d+)(-photo)?\.(jpe?g|png|webp|avif)$/i;
 
@@ -63,6 +132,17 @@ const CATEGORY_LABEL: Record<PortraitCategory, string> = {
   gift: "gift",
   "multi-pet": "multi-pet",
 };
+
+function paintingSize(publicPath: string): { width?: number; height?: number } {
+  try {
+    const { width, height } = imageSize(
+      readFileSync(path.join(process.cwd(), "public", publicPath))
+    );
+    return { width, height };
+  } catch {
+    return {};
+  }
+}
 
 function listGalleryFiles(): string[] {
   try {
@@ -112,6 +192,7 @@ export function getGalleryItems(): GalleryItem[] {
         title: detail.title ?? `Portrait ${String(i + 1).padStart(2, "0")}`,
         painting: files.painting,
         photo: files.photo,
+        ...(files.painting ? paintingSize(files.painting) : {}),
         paintingAlt:
           detail.paintingAlt ??
           `Hand-painted oil portrait of a dog (${label} commission)`,

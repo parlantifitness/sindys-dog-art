@@ -5,6 +5,8 @@ import { BrushMark } from "./Logo";
 export function ArtImage({
   src,
   alt,
+  width,
+  height,
   label = "Painting coming soon",
   sizes = "(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw",
   priority = false,
@@ -12,6 +14,9 @@ export function ArtImage({
 }: {
   src?: string;
   alt: string;
+  /** Natural size of the image; when given, the frame matches it instead of cropping to 4:5. */
+  width?: number;
+  height?: number;
   label?: string;
   sizes?: string;
   priority?: boolean;
@@ -19,7 +24,10 @@ export function ArtImage({
 }) {
   return (
     <div
-      className={`relative aspect-[4/5] overflow-hidden bg-sage-soft ${className}`}
+      className={`relative overflow-hidden bg-sage-soft ${
+        src && width && height ? "" : "aspect-[4/5]"
+      } ${className}`}
+      style={src && width && height ? { aspectRatio: `${width} / ${height}` } : undefined}
     >
       {src ? (
         <Image

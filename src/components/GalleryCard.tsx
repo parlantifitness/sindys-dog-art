@@ -14,6 +14,9 @@ export function GalleryCard({ item }: { item: GalleryItem }) {
       <ArtImage
         src={showPhoto ? item.photo : item.painting}
         alt={showPhoto ? item.photoAlt : item.paintingAlt}
+        width={item.width}
+        height={item.height}
+        sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
       />
       <figcaption className="mt-3 flex items-center justify-between gap-3 text-sm">
         <span className="font-display text-lg text-ink">{item.title}</span>

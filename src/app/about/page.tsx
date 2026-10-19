@@ -1,3 +1,5 @@
+import { existsSync } from "node:fs";
+import path from "node:path";
 import { ArtImage } from "@/components/ArtImage";
 import { ButtonLink } from "@/components/ButtonLink";
 import { Container } from "@/components/Container";
@@ -13,7 +15,11 @@ export const metadata = pageMetadata({
   path: "/about",
 });
 
+/** Drop a photo of Sindy at public/about/sindy.jpg and it appears here automatically. */
+const SINDY_PHOTO = "/about/sindy.jpg";
+
 export default function AboutPage() {
+  const hasPhoto = existsSync(path.join(process.cwd(), "public", SINDY_PHOTO));
   return (
     <>
       <PageHeader eyebrow="About" title="Meet Sindy">
@@ -25,7 +31,8 @@ export default function AboutPage() {
 
       <Container className="grid gap-12 py-16 md:grid-cols-[2fr_3fr] md:items-start">
         <ArtImage
-          alt="Portrait of Sindy, the artist, in her studio (add photo)"
+          src={hasPhoto ? SINDY_PHOTO : undefined}
+          alt="Sindy, the artist, with her paintings"
           label="Photo of Sindy coming soon"
           sizes="(min-width: 768px) 40vw, 100vw"
         />
