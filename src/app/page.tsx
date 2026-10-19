@@ -4,6 +4,7 @@ import { ArtImage } from "@/components/ArtImage";
 import { ButtonLink } from "@/components/ButtonLink";
 import { Container } from "@/components/Container";
 import { PricingGrid } from "@/components/PricingTable";
+import { DOG_PHOTOS, SINDY_PHOTO } from "@/lib/about";
 import { getFeaturedItems, type PortraitCategory } from "@/lib/gallery";
 import { COMMISSION_HREF, COMMISSION_LABEL, SITE } from "@/lib/site";
 
@@ -135,6 +136,44 @@ export default function HomePage() {
             space and your dog.
           </p>
           <PricingGrid />
+        </Container>
+      </section>
+
+      <section
+        className="border-y border-line bg-sage-soft/40 py-20"
+        aria-labelledby="sindy-heading"
+      >
+        <Container className="grid items-center gap-12 md:grid-cols-[2fr_3fr]">
+          <ArtImage
+            src={SINDY_PHOTO.src}
+            alt={SINDY_PHOTO.alt}
+            width={SINDY_PHOTO.width}
+            height={SINDY_PHOTO.height}
+            sizes="(min-width: 768px) 35vw, 100vw"
+            className="mx-auto w-full max-w-sm"
+          />
+          <div className="text-center md:text-left">
+            <h2 id="sindy-heading" className="text-4xl sm:text-5xl">
+              Painted by someone who adores dogs
+            </h2>
+            <p className="mt-4 max-w-xl text-ink-soft">
+              Sindy has been painting dogs for over 20 years, and has three of
+              her own: Lulu, Milly and Nellie.
+            </p>
+            <ul className="mt-6 grid max-w-md grid-cols-3 gap-3">
+              {DOG_PHOTOS.map((photo) => (
+                <li key={photo.src}>
+                  <ArtImage src={photo.src} alt={photo.alt} sizes="160px" />
+                </li>
+              ))}
+            </ul>
+            <Link
+              href="/about"
+              className="mt-8 inline-block border-b border-ink pb-0.5 text-sm uppercase tracking-[0.16em] hover:border-sage-deep hover:text-sage-deep"
+            >
+              Meet Sindy
+            </Link>
+          </div>
         </Container>
       </section>
 

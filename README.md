@@ -60,5 +60,5 @@ Search the codebase for `PlaceholderNote` to find copy Sindy needs to write:
 
 - `src/lib/testimonials.ts`: 15 placeholder reviews (the page is `noindex` until they are real)
 - `src/lib/guides.ts`: five guide outlines (drafts are `noindex`; set `status: "published"` once written)
-- `src/app/about/page.tsx`: full bio; add a photo of Sindy as `public/about/sindy.jpg` and it appears automatically
+- `src/app/about/page.tsx`: full bio
 - Turnaround time: currently “discuss with Sindy” (`src/lib/pricing.ts`)

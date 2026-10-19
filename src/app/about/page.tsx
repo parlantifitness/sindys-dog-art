@@ -1,10 +1,9 @@
-import { existsSync } from "node:fs";
-import path from "node:path";
 import { ArtImage } from "@/components/ArtImage";
 import { ButtonLink } from "@/components/ButtonLink";
 import { Container } from "@/components/Container";
 import { PageHeader } from "@/components/PageHeader";
 import { PlaceholderNote } from "@/components/PlaceholderNote";
+import { DOG_PHOTOS, SINDY_PHOTO } from "@/lib/about";
 import { pageMetadata } from "@/lib/seo";
 import { COMMISSION_HREF, COMMISSION_LABEL } from "@/lib/site";
 
@@ -15,11 +14,7 @@ export const metadata = pageMetadata({
   path: "/about",
 });
 
-/** Drop a photo of Sindy at public/about/sindy.jpg and it appears here automatically. */
-const SINDY_PHOTO = "/about/sindy.jpg";
-
 export default function AboutPage() {
-  const hasPhoto = existsSync(path.join(process.cwd(), "public", SINDY_PHOTO));
   return (
     <>
       <PageHeader eyebrow="About" title="Meet Sindy">
@@ -31,10 +26,12 @@ export default function AboutPage() {
 
       <Container className="grid gap-12 py-16 md:grid-cols-[2fr_3fr] md:items-start">
         <ArtImage
-          src={hasPhoto ? SINDY_PHOTO : undefined}
-          alt="Sindy, the artist, with her paintings"
-          label="Photo of Sindy coming soon"
+          src={SINDY_PHOTO.src}
+          alt={SINDY_PHOTO.alt}
+          width={SINDY_PHOTO.width}
+          height={SINDY_PHOTO.height}
           sizes="(min-width: 768px) 40vw, 100vw"
+          priority
         />
         <div className="space-y-5 text-ink-soft">
           <h2 className="text-4xl text-ink">Painting dogs for over 20 years</h2>
@@ -54,6 +51,32 @@ export default function AboutPage() {
           </div>
         </div>
       </Container>
+
+      <section
+        aria-labelledby="dogs-heading"
+        className="border-t border-line bg-sage-soft/40 py-16"
+      >
+        <Container>
+          <h2 id="dogs-heading" className="text-center text-4xl sm:text-5xl">
+            Meet Lulu, Milly &amp; Nellie
+          </h2>
+          <p className="mx-auto mt-3 max-w-xl text-center text-ink-soft">
+            Sindy’s own dogs, and the reason every portrait she paints starts
+            with a really good look at the face.
+          </p>
+          <ul className="mt-10 grid gap-6 sm:grid-cols-3">
+            {DOG_PHOTOS.map((photo) => (
+              <li key={photo.src}>
+                <ArtImage
+                  src={photo.src}
+                  alt={photo.alt}
+                  sizes="(min-width: 640px) 33vw, 100vw"
+                />
+              </li>
+            ))}
+          </ul>
+        </Container>
+      </section>
     </>
   );
 }
