@@ -75,6 +75,15 @@ export function SiteFooter() {
           © {process.env.NEXT_PUBLIC_BUILD_YEAR} {SITE.name}. All paintings and
           images are the property of the artist.
         </p>
+        <p className="mt-2 text-xs">
+          Website by{" "}
+          <a
+            href="https://www.jpsitecraft.com"
+            className="hover:text-sage-deep hover:underline"
+          >
+            JP Sitecraft
+          </a>
+        </p>
       </Container>
     </footer>
   );
