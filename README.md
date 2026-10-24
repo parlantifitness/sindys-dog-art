@@ -78,7 +78,5 @@ The five articles live in `src/content/guides/` as typed content (see `src/lib/g
 
 ## Content still to supply
 
-Search the codebase for `PlaceholderNote` to find copy Sindy needs to write:
-
-- `src/lib/testimonials.ts`: 15 placeholder reviews (the page is `noindex` until they are real)
-- Turnaround time: currently “discuss with Sindy” (`src/lib/pricing.ts`)
+- `src/lib/testimonials.ts`: real customer reviews (empty for now; the Testimonials page shows only the Trustpilot links and stays out of search results until a review is added). Only add reviews from genuine, independent customers, with their permission.
+- Turnaround time: `TURNAROUND_ESTIMATE` in `src/lib/policies.ts` is a placeholder estimate to confirm with Sindy.

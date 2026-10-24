@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { getGalleryItems } from "@/lib/gallery";
 import { GUIDES } from "@/lib/guides";
 import { SITE } from "@/lib/site";
-import { ALL_PLACEHOLDERS } from "@/lib/testimonials";
+import { HAS_TESTIMONIALS } from "@/lib/testimonials";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const paintings = getGalleryItems()
@@ -19,8 +19,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/faq" },
     { path: "/terms" },
     { path: "/privacy" },
-    // Hidden from search until real reviews are in.
-    ...(ALL_PLACEHOLDERS ? [] : [{ path: "/testimonials" }]),
+    // Hidden from search until real reviews are on the page.
+    ...(HAS_TESTIMONIALS ? [{ path: "/testimonials" }] : []),
     ...GUIDES.filter((g) => g.status === "published").map((g) => ({ path: `/guides/${g.slug}` })),
   ];
 

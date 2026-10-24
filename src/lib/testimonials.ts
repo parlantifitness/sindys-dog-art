@@ -1,26 +1,19 @@
 export interface Testimonial {
   id: string;
-  /** The buyer's own words. */
+  /** The buyer's own words, exactly as given. */
   quote: string;
-  /** Buyer's first name (and optionally town/county). */
+  /** How the buyer wants to be named, e.g. "Jane, Leeds". */
   buyer: string;
   /** What prompted the commission, e.g. "A 40th birthday gift for my sister". */
   occasion: string;
   kind: "memorial" | "gift" | "multi-pet";
-  /** Set to false once a real review has replaced the placeholder text. */
-  placeholder: boolean;
 }
 
-const KINDS = ["memorial", "gift", "multi-pet"] as const;
+/**
+ * Real customer reviews shown on /testimonials. Only add reviews from genuine, independent
+ * customers (with their permission). Leave empty until then: the page then shows just the
+ * Trustpilot links and stays out of search results and the sitemap.
+ */
+export const TESTIMONIALS: Testimonial[] = [];
 
-/** 15 placeholder slots. Replace each with a real review, then set placeholder: false. */
-export const TESTIMONIALS: Testimonial[] = Array.from({ length: 15 }, (_, i) => ({
-  id: `review-${String(i + 1).padStart(2, "0")}`,
-  quote: "The buyer’s own words about their portrait will go here.",
-  buyer: "Buyer name, county",
-  occasion: "What prompted the commission",
-  kind: KINDS[i % KINDS.length],
-  placeholder: true,
-}));
-
-export const ALL_PLACEHOLDERS = TESTIMONIALS.every((t) => t.placeholder);
+export const HAS_TESTIMONIALS = TESTIMONIALS.length > 0;

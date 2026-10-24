@@ -2,7 +2,6 @@ import { ButtonLink } from "@/components/ButtonLink";
 import { Container } from "@/components/Container";
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import { PageHeader } from "@/components/PageHeader";
-import { PlaceholderNote } from "@/components/PlaceholderNote";
 import { pageMetadata } from "@/lib/seo";
 import {
   COMMISSION_HREF,
@@ -10,15 +9,15 @@ import {
   TRUSTPILOT_REVIEW_URL,
   TRUSTPILOT_URL,
 } from "@/lib/site";
-import { ALL_PLACEHOLDERS, TESTIMONIALS } from "@/lib/testimonials";
+import { HAS_TESTIMONIALS, TESTIMONIALS } from "@/lib/testimonials";
 
 export const metadata = pageMetadata({
   title: "Testimonials",
   description:
     "Read what customers across the UK say about their hand-painted oil dog portraits from Sindy, from memorial tributes to birthday and Christmas gifts.",
   path: "/testimonials",
-  // Keep out of search results until the placeholder reviews are replaced.
-  noindex: ALL_PLACEHOLDERS,
+  // Keep out of search results until there are real reviews on the page.
+  noindex: !HAS_TESTIMONIALS,
 });
 
 const KIND_LABEL = {
@@ -32,15 +31,16 @@ export default function TestimonialsPage() {
     <>
       <PageHeader eyebrow="Testimonials" title="In their own words">
         <p>
-          What customers say about their portraits, and the occasions that led
-          them to commission one.
+          {HAS_TESTIMONIALS
+            ? "What customers say about their portraits, and the occasions that led them to commission one."
+            : "Read what customers say about their portraits on Trustpilot."}
         </p>
       </PageHeader>
 
       <Container className="py-14">
         <section
           aria-labelledby="trustpilot-heading"
-          className="mb-12 border border-line bg-sage-soft/50 p-8 text-center"
+          className="border border-line bg-sage-soft/50 p-8 text-center"
         >
           <h2 id="trustpilot-heading" className="text-3xl">
             Reviews on Trustpilot
@@ -71,24 +71,11 @@ export default function TestimonialsPage() {
           </div>
         </section>
 
-        {ALL_PLACEHOLDERS ? (
-          <PlaceholderNote>
-            These are layout placeholders. Replace each entry in
-            src/lib/testimonials.ts with a real review (the buyer’s own words
-            and what prompted the commission). This page stays hidden from
-            search engines until you do.
-          </PlaceholderNote>
-        ) : null}
-
+        {HAS_TESTIMONIALS ? (
         <ul className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {TESTIMONIALS.map((review) => (
             <li key={review.id}>
               <figure className="flex h-full flex-col border border-line bg-white/50 p-7">
-                {review.placeholder ? (
-                  <span className="mb-3 self-start text-xs font-medium uppercase tracking-[0.2em] text-sage-deep">
-                    Placeholder
-                  </span>
-                ) : null}
                 <blockquote className="flex-1 font-display text-xl italic leading-snug">
                   <p>“{review.quote}”</p>
                 </blockquote>
@@ -102,6 +89,7 @@ export default function TestimonialsPage() {
             </li>
           ))}
         </ul>
+        ) : null}
 
         <div className="mt-16 text-center">
           <ButtonLink href={COMMISSION_HREF}>{COMMISSION_LABEL}</ButtonLink>
