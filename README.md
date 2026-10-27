@@ -78,5 +78,5 @@ The five articles live in `src/content/guides/` as typed content (see `src/lib/g
 
 ## Content still to supply
 
-- `src/lib/testimonials.ts`: real customer reviews (empty for now; the Testimonials page shows only the Trustpilot links and stays out of search results until a review is added). Only add reviews from genuine, independent customers, with their permission.
+- `src/lib/testimonials.ts`: real customer reviews (three so far). Add more as they come in; only use reviews from genuine, independent customers, with their permission. With no reviews, the Testimonials page falls back to the Trustpilot links and stays out of search results.
 - Turnaround time: `TURNAROUND_ESTIMATE` in `src/lib/policies.ts` is a placeholder estimate to confirm with Sindy.
