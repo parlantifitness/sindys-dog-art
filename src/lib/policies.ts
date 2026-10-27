@@ -14,7 +14,7 @@ import { CONTACT_EMAIL } from "./site";
 export const TURNAROUND_ESTIMATE = "around 4–6 weeks";
 
 export const RUSH_PERCENT = 30;
-export const RUSH_NOTE = `+${RUSH_PERCENT}% for expedited turnaround — discuss with Sindy`;
+export const RUSH_NOTE = `+${RUSH_PERCENT}% for expedited turnaround (discuss with Sindy)`;
 
 export const FINAL_PRICE_NOTE =
   "Sindy will confirm the final price with you before any work begins.";

@@ -6,7 +6,7 @@ const TODAY = "2026-10-27";
 const HOW_TO_STEPS = [
   {
     name: "Pick a calm moment, not a chaotic one",
-    text: "Photograph your dogs when they're settled — after a walk or during a quiet moment indoors — rather than when they're excited or wound up.",
+    text: "Photograph your dogs when they're settled, after a walk or during a quiet moment indoors, rather than when they're excited or wound up.",
   },
   {
     name: "Get a second pair of hands",
@@ -37,7 +37,7 @@ export const guide: Guide = {
   description:
     "How to get a usable reference photo of two or more dogs together for a multi-pet oil portrait: managing the dogs, framing, light, and what to send if a single perfect group shot isn't possible.",
   quickAnswer:
-    "The easiest way to photograph multiple dogs for a portrait is with a second person helping, in a calm moment rather than an excited one, with both dogs close together and level with the camera. If you can't get one perfect group shot, send your best individual photos of each dog as well — Sindy can work from a combination.",
+    "The easiest way to photograph multiple dogs for a portrait is with a second person helping, in a calm moment rather than an excited one, with both dogs close together and level with the camera. If you can't get one perfect group shot, send your best individual photos of each dog as well. Sindy can work from a combination.",
   published: TODAY,
   updated: TODAY,
   status: "published",
@@ -56,7 +56,7 @@ export const guide: Guide = {
       title: "Why group photos are harder",
       blocks: [
         p(
-          "Getting one dog to sit still, look at the camera and show their personality is hard enough. With two or more, you're waiting for several things to line up at once — which is why group photos are so often someone looking away, or one dog mid-blink. It's normal, and it doesn't mean you can't get a usable photo."
+          "Getting one dog to sit still, look at the camera and show their personality is hard enough. With two or more, you're waiting for several things to line up at once, which is why group photos are so often someone looking away, or one dog mid-blink. It's normal, and it doesn't mean you can't get a usable photo."
         ),
         p(
           "If you haven't already, our guide to [the best photos for a dog portrait](/guides/best-photos-for-a-dog-portrait) covers the basics of light, angle and focus that apply here too."
@@ -80,7 +80,7 @@ export const guide: Guide = {
           "Photograph your dogs after a walk or during a settled moment, rather than when they're full of energy. A sofa, bed, or a short stretch of garden with a lead keeps them from wandering out of frame while you compose the shot."
         ),
         p(
-          "Natural daylight still matters here, just as with a single dog — a bright room or a soft, overcast spot outside works best. Avoid flash, which flattens detail and can cause red-eye in more than one dog at once."
+          "Natural daylight still matters here, just as with a single dog: a bright room or a soft, overcast spot outside works best. Avoid flash, which flattens detail and can cause red-eye in more than one dog at once."
         ),
       ],
     },
@@ -93,7 +93,7 @@ export const guide: Guide = {
         ),
         h3("Different sizes or breeds"),
         p(
-          "If your dogs are very different in size, try sitting or lying them at a similar height — side by side on a sofa, for example — so neither one is dramatically larger in the frame than the other."
+          "If your dogs are very different in size, try sitting or lying them at a similar height (side by side on a sofa, for example) so neither one is dramatically larger in the frame than the other."
         ),
         painting(
           "hand-painted-brown-spaniel-and-scruffy-white-dog-oil-portrait-multi-pet",
@@ -111,7 +111,7 @@ export const guide: Guide = {
       title: "Take far more photos than you think you need",
       blocks: [
         ul(
-          "Take a long burst rather than single shots — with two or more dogs, you need more attempts to catch everyone looking good at once.",
+          "Take a long burst rather than single shots. With two or more dogs, you need more attempts to catch everyone looking good at once.",
           "It's fine if no single photo is perfect. Note which shot has the best expression for each dog, even if they're not all from the same frame.",
           "If one dog is much harder to photograph than the other, get a few photos of them alone too, in addition to any group shots."
         ),
@@ -122,7 +122,7 @@ export const guide: Guide = {
       title: "What to send if you can't get the perfect group shot",
       blocks: [
         p(
-          "Don't hold out for one flawless photo with every dog looking ideal — it's a lot to ask for naturally. Send your best group photo, plus the best individual photo of each dog, and let Sindy know in your enquiry. She can often work from a combination: using the pose and composition from the group photo with the clearest expression of each dog taken from their individual shots."
+          "Don't hold out for one flawless photo with every dog looking ideal. It's a lot to ask for naturally. Send your best group photo, plus the best individual photo of each dog, and let Sindy know in your enquiry. She can often work from a combination: using the pose and composition from the group photo with the clearest expression of each dog taken from their individual shots."
         ),
         note(
           "Portraits are priced by size, and a larger size often suits more than one dog. Choose “Multi-pet” on the enquiry form and Sindy will talk through the best size and price. See the [pricing guide](/guides/how-much-does-a-custom-oil-dog-portrait-cost) for current prices.",
@@ -155,7 +155,7 @@ export const guide: Guide = {
     {
       question: "What if my dogs are very different sizes?",
       answer:
-        "Try photographing them at a similar height, such as both sitting on a sofa, so neither is dramatically larger in the frame. If that's not possible, send what you have and mention it in your enquiry — Sindy will advise.",
+        "Try photographing them at a similar height, such as both sitting on a sofa, so neither is dramatically larger in the frame. If that's not possible, send what you have and mention it in your enquiry, and Sindy will advise.",
     },
     {
       question: "Can I include a dog who has passed away alongside a dog I still have?",
