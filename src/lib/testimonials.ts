@@ -20,7 +20,7 @@ export const TESTIMONIALS: Testimonial[] = [
     quote:
       "I was fortunate enough to be gifted a portrait of my dogs done by Sindy. She brought out all their characteristics - cheekiness, fun, loveable and togetherness. Sindy's attention to detail - gleaned from a photo of my dogs - was exceptional. She is a real talent. I would not hesitate to recommend Sindy to undertake a portrait for you. You will not be disappointed.",
     buyer: "Erica",
-    occasion: "A surprise gift — a portrait of her two dogs together",
+    occasion: "A gift — a portrait of her two dogs",
     kind: "multi-pet",
   },
   {
