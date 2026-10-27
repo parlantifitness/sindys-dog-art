@@ -155,7 +155,7 @@ const DETAILS: Record<
     paintingAlt: "Hand-painted oil portrait of a fawn dog with a dark muzzle and soulful brown eyes against a golden-orange background, painted as a gift portrait",
   },
   "hand-painted-french-bulldog-birthday-oil-portrait-gift": {
-    title: "Birthday bulldog",
+    title: "Birthday boy",
     paintingAlt: "Hand-painted oil portrait of a fawn French bulldog in a blue star-patterned party hat resting its chin on a table beside a birthday cake with a candle, painted as a gift portrait",
     photoLabel: "Compare",
     featureAsPhoto: true,
