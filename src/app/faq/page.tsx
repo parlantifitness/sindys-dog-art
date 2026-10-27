@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ButtonLink } from "@/components/ButtonLink";
 import { Container } from "@/components/Container";
+import { FaqList } from "@/components/FaqList";
 import { BreadcrumbJsonLd, JsonLd } from "@/components/JsonLd";
 import { KeyFacts } from "@/components/KeyFacts";
 import { PageHeader } from "@/components/PageHeader";
@@ -44,14 +45,7 @@ export default function FaqPage() {
               <h2 id={slug(group.title)} className="mb-6 text-4xl font-semibold sm:text-5xl">
                 {group.title}
               </h2>
-              <dl className="divide-y divide-line border-y border-line">
-                {group.items.map((faq) => (
-                  <div key={faq.question} className="py-6">
-                    <dt className="font-display text-3xl font-semibold leading-snug">{faq.question}</dt>
-                    <dd className="mt-2 text-ink-soft">{faq.answer}</dd>
-                  </div>
-                ))}
-              </dl>
+              <FaqList faqs={group.items} />
             </section>
           ))}
         </div>
