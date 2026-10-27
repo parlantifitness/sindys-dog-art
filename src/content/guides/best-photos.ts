@@ -145,7 +145,7 @@ export const guide: Guide = {
       title: "More than one pet",
       blocks: [
         p(
-          "For a multi-pet portrait, a photo of your pets together is ideal. Separate photos of each pet can work too. Tell Sindy what you have, and she will talk through the options and the best size for your photos."
+          "For a multi-pet portrait, a photo of your pets together is ideal. Separate photos of each pet can work too. Tell Sindy what you have, and she will talk through the options and the best size for your photos. For tips on getting two or more dogs in one frame, see [how to photograph multiple dogs together for a portrait](/guides/photographing-multiple-dogs-for-a-portrait)."
         ),
       ],
     },
