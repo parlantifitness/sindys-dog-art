@@ -162,6 +162,11 @@ const DETAILS: Record<
     photoAlt: "Original reference photo of a French bulldog beside the finished hand-painted oil portrait, painted as a gift portrait, showing how closely the painting matches",
     focus: "center 12%",
   },
+  "hand-painted-bulldog-patsy-oil-portrait-gift": {
+    title: "Patsy the bulldog",
+    paintingAlt: "Hand-painted oil portrait of Patsy, a white and fawn bulldog with amber eyes, against a warm orange background, painted as a gift portrait",
+    photoAlt: "Original reference photo of Patsy the bulldog, used for her hand-painted oil portrait",
+  },
   "hand-painted-brown-scruffy-faced-dog-oil-portrait-memorial": {
     title: "Brown dog with amber eyes",
     paintingAlt: "Hand-painted oil portrait of a brown dog with a scruffy muzzle and amber eyes against a soft pastel background, painted as a memorial piece",
@@ -181,6 +186,15 @@ const DETAILS: Record<
   "multi-pet-02": {
     title: "Spaniel and Yorkie",
     paintingAlt: "Oil painting of a black spaniel and a Yorkshire terrier lying together",
+  },
+  "hand-painted-brown-spaniel-and-scruffy-white-dog-oil-portrait-multi-pet": {
+    title: "Spaniel and friend on the sofa",
+    paintingAlt: "Hand-painted oil portrait of a brown spaniel lying beside a small scruffy white dog with black ears, together on a sofa, painted as a multi-pet portrait",
+    photoAlt: "Original reference photo of a brown spaniel and a small scruffy white dog on a sofa, used for their hand-painted oil portrait",
+  },
+  "hand-painted-two-white-dogs-blue-flowers-oil-portrait-multi-pet": {
+    title: "Two white dogs among blue flowers",
+    paintingAlt: "Hand-painted oil portrait of two white dogs side by side against a blue sky, with blue flowers and long grass in front, painted as a multi-pet portrait",
   },
 };
 
