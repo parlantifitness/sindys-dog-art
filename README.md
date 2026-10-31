@@ -67,7 +67,7 @@ Prices live in `src/lib/pricing.ts`. Every other business rule (payment split, r
 
 ## Guides
 
-The six articles live in `src/content/guides/` as typed content (see `src/lib/guide-types.ts`). They quote prices, payment, revisions, refunds, shipping and turnaround by importing from `src/lib/policies.ts` and `src/lib/pricing.ts`, and the process steps from `src/lib/process.ts`; never retype those. Each guide has a quick-answer box, contents list, FAQs and Article/FAQ/HowTo structured data. A guide with `status: "draft"` is noindexed and left out of the sitemap.
+The seven articles live in `src/content/guides/` as typed content (see `src/lib/guide-types.ts`). They quote prices, payment, revisions, refunds, shipping and turnaround by importing from `src/lib/policies.ts` and `src/lib/pricing.ts`, and the process steps from `src/lib/process.ts`; never retype those. Each guide has a quick-answer box, contents list, FAQs and Article/FAQ/HowTo structured data. A guide with `status: "draft"` is noindexed and left out of the sitemap.
 
 ## Search and AI visibility
 
