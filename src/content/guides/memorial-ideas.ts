@@ -24,6 +24,7 @@ export const guide: Guide = {
     "best-photos-for-a-dog-portrait",
     "how-to-commission-a-dog-portrait-from-a-photo",
     "dog-portrait-gift-ideas",
+    "coping-with-the-loss-of-a-dog",
   ],
   sections: [
     {

@@ -1,5 +1,6 @@
 import { guide as bestPhotos } from "@/content/guides/best-photos";
 import { guide as canvasToWall } from "@/content/guides/canvas-to-wall";
+import { guide as copingWithLoss } from "@/content/guides/coping-with-loss";
 import { guide as cost } from "@/content/guides/cost";
 import { guide as giftIdeas } from "@/content/guides/gift-ideas";
 import { guide as howToCommission } from "@/content/guides/how-to-commission";
@@ -17,6 +18,7 @@ export const GUIDES: Guide[] = [
   giftIdeas,
   multiDogs,
   canvasToWall,
+  copingWithLoss,
 ];
 
 export function getGuide(slug: string): Guide | undefined {
