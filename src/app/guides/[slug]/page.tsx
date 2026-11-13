@@ -19,6 +19,14 @@ import {
 import { DEFAULT_OG_IMAGE, pageMetadata } from "@/lib/seo";
 import { COMMISSION_HREF, COMMISSION_LABEL } from "@/lib/site";
 
+/** Main pages every guide points to, so readers (and search engines) can reach the rest of the site. */
+const EXPLORE_LINKS = [
+  { href: "/gallery", label: "Gallery", blurb: "Browse Sindy's finished oil portraits." },
+  { href: "/how-it-works", label: "How it works", blurb: "From photo to painting, step by step." },
+  { href: "/testimonials", label: "Testimonials", blurb: "What customers say about their portraits." },
+  { href: "/about", label: "About Sindy", blurb: "The artist behind the brush." },
+] as const;
+
 export function generateStaticParams() {
   return GUIDES.map((guide) => ({ slug: guide.slug }));
 }
@@ -70,9 +78,14 @@ export default async function GuidePage(props: PageProps<"/guides/[slug]">) {
     (firstPainting && firstPainting.type === "painting"
       ? paintings.get(firstPainting.id)?.painting
       : undefined) ?? DEFAULT_OG_IMAGE;
-  const related = guide.related
+  const declared = guide.related
     .map((s) => GUIDES.find((g) => g.slug === s))
     .filter((g): g is NonNullable<typeof g> => Boolean(g));
+  // Always end on at least three guides: top up the hand-picked ones with the rest, in index order.
+  const related = [
+    ...declared,
+    ...GUIDES.filter((g) => g.slug !== guide.slug && !declared.includes(g)),
+  ].slice(0, Math.max(3, declared.length));
 
   const nodes: Record<string, unknown>[] = [
     articleSchema({
@@ -159,6 +172,23 @@ export default async function GuidePage(props: PageProps<"/guides/[slug]">) {
             </ul>
           </nav>
         ) : null}
+
+        <nav aria-label="Explore the site" className="mt-14">
+          <h2 className="mb-4 text-3xl">Explore the site</h2>
+          <ul className="grid gap-3 sm:grid-cols-2">
+            {EXPLORE_LINKS.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className="block h-full border border-line bg-white/50 p-4 transition-colors hover:border-sage-deep"
+                >
+                  <span className="block font-display text-2xl">{link.label}</span>
+                  <span className="mt-1 block text-sm text-ink-soft">{link.blurb}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
 
         <aside className="mt-14 border border-line bg-sage-soft/50 p-8 text-center">
           <p className="font-display text-3xl">Ready to commission a portrait of your dog?</p>
