@@ -19,6 +19,12 @@ export function organizationSchema() {
     description: SITE.description,
     founder: { "@id": PERSON_ID },
     sameAs: [TRUSTPILOT_URL],
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Epsom",
+      addressRegion: "Surrey",
+      addressCountry: "GB",
+    },
     areaServed: { "@type": "Country", name: "United Kingdom" },
     knowsAbout: [
       "Custom dog portraits",

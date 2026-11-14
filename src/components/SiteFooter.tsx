@@ -9,6 +9,13 @@ import {
 import { Container } from "./Container";
 import { Logo } from "./Logo";
 
+const PORTRAIT_LINKS = [
+  { href: "/memorial-dog-portraits", label: "Memorial portraits" },
+  { href: "/gift-dog-portraits", label: "Gift portraits" },
+  { href: "/multi-pet-dog-portraits", label: "Multi-pet portraits" },
+  { href: "/delivery-and-framing", label: "Delivery & framing" },
+] as const;
+
 export function SiteFooter() {
   return (
     <footer className="mt-24 border-t border-line bg-sage-soft/60 py-14">
@@ -49,6 +56,15 @@ export function SiteFooter() {
           >
             {COMMISSION_LABEL}
           </Link>
+          <ul className="mt-4 space-y-1 text-ink-soft">
+            {PORTRAIT_LINKS.map((link) => (
+              <li key={link.href}>
+                <Link href={link.href} className="hover:text-sage-deep">
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
           <p className="mt-4 text-ink-soft">
             <a
               href={TRUSTPILOT_URL}
@@ -69,6 +85,9 @@ export function SiteFooter() {
           </Link>
           <Link href="/terms" className="hover:text-sage-deep hover:underline">
             Terms
+          </Link>
+          <Link href="/contact" className="hover:text-sage-deep hover:underline">
+            Contact
           </Link>
         </nav>
         <p>
