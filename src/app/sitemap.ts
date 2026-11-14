@@ -14,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/gallery", images: paintings },
     { path: "/commission" },
     { path: "/how-it-works" },
+    { path: "/pricing" },
     { path: "/about" },
     { path: "/guides" },
     { path: "/faq" },

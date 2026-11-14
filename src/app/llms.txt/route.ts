@@ -6,6 +6,7 @@ import { EXPERIENCE_YEARS, NAV_LINKS, SITE, TRUSTPILOT_URL } from "@/lib/site";
 const PAGE_NOTES: Record<string, string> = {
   "/gallery": "Finished oil portraits: memorial, gift and multi-pet.",
   "/how-it-works": "The commission process from enquiry to UK delivery.",
+  "/pricing": "Portrait sizes, prices, what is included and how payment works.",
   "/testimonials": "What customers say about their portraits.",
   "/about": `About Sindy, a UK artist painting dogs for over ${EXPERIENCE_YEARS} years.`,
   "/guides": "Guides to commissioning, photos, memorial and gift ideas, and pricing.",
