@@ -48,7 +48,7 @@ export const CATEGORIES: readonly {
     id: "multi-pet",
     label: "Multi-pet portraits",
     intro:
-      "Two dogs, three dogs, or dogs and their feline housemates, brought together in a single painting.",
+      "Two dogs, three dogs, or more, brought together in a single painting.",
   },
 ];
 

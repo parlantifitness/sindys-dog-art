@@ -39,11 +39,6 @@ const faqs = [
     answer:
       "There isn't a separate multi-pet price list. The cost depends on the size you choose, and Sindy will advise on the best size and price for your photos.",
   },
-  {
-    question: "Can you include a cat alongside the dogs?",
-    answer:
-      "Yes, Sindy has painted dogs together with their feline housemates. Mention this in your enquiry and she'll talk through what works best.",
-  },
 ];
 
 export default function MultiPetPortraitsPage() {
@@ -55,8 +50,8 @@ export default function MultiPetPortraitsPage() {
     <>
       <PageHeader eyebrow="Multi-pet portraits" title="Your whole pack, in one painting">
         <p>
-          Two dogs, three dogs, or dogs and their feline housemates, brought
-          together in a single hand-painted oil portrait.
+          Two dogs, three dogs, or more, brought together in a single
+          hand-painted oil portrait.
         </p>
       </PageHeader>
 
