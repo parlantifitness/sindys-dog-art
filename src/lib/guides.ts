@@ -7,6 +7,7 @@ import { guide as giftIdeas } from "@/content/guides/gift-ideas";
 import { guide as howToCommission } from "@/content/guides/how-to-commission";
 import { guide as memorialIdeas } from "@/content/guides/memorial-ideas";
 import { guide as multiDogs } from "@/content/guides/photographing-multiple-dogs";
+import { guide as petPortraitPricesUk } from "@/content/guides/pet-portrait-prices-uk";
 import type { Guide } from "./guide-types";
 
 export type { Guide } from "./guide-types";
@@ -21,6 +22,7 @@ export const GUIDES: Guide[] = [
   canvasToWall,
   copingWithLoss,
   customisingPortrait,
+  petPortraitPricesUk,
 ];
 
 export function getGuide(slug: string): Guide | undefined {

@@ -112,6 +112,9 @@ export const guide: Guide = {
         p(
           "Unlike a printed or mass-produced gift, no two hand-painted portraits are the same. That is what makes it something to keep, whether it is a memorial or a gift."
         ),
+        p(
+          "Wondering how this compares to other kinds of pet portrait, such as digital files or prints? Our guide to [pet portrait prices in the UK](/guides/pet-portrait-prices-uk) covers the wider market."
+        ),
       ],
     },
     {
