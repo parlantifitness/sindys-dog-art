@@ -3,7 +3,7 @@ import { Container } from "@/components/Container";
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import { PageHeader } from "@/components/PageHeader";
 import { readingMinutes } from "@/lib/guide-types";
-import { GUIDES } from "@/lib/guides";
+import { getGuideTopics } from "@/lib/guides";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
@@ -23,29 +23,39 @@ export default function GuidesPage() {
         </p>
       </PageHeader>
 
-      <Container narrow className="py-16">
-        <ul className="divide-y divide-line border-y border-line">
-          {GUIDES.map((guide) => (
-            <li key={guide.slug}>
-              <article className="py-8">
-                <h2 className="text-4xl font-semibold leading-tight sm:text-5xl">
-                  <Link
-                    href={`/guides/${guide.slug}`}
-                    className="decoration-sage decoration-2 underline-offset-4 hover:text-sage-deep hover:underline"
-                  >
-                    {guide.title}
-                  </Link>
-                </h2>
-                <p className="mt-2 text-ink-soft">{guide.description}</p>
-                <p className="mt-3 text-xs font-medium uppercase tracking-[0.2em] text-sage-deep">
-                  {guide.status === "draft"
-                    ? "Coming soon"
-                    : `${readingMinutes(guide)} min read`}
-                </p>
-              </article>
-            </li>
+      <Container className="py-16">
+        <div className="space-y-16">
+          {getGuideTopics().map((topic) => (
+            <section key={topic.id} aria-labelledby={`topic-${topic.id}`}>
+              <h2 id={`topic-${topic.id}`} className="text-4xl font-semibold sm:text-5xl">
+                {topic.title}
+              </h2>
+              <p className="mt-2 max-w-2xl text-ink-soft">{topic.blurb}</p>
+              <ul className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                {topic.guides.map((guide) => (
+                  <li key={guide.slug}>
+                    <article className="group relative flex h-full flex-col border border-line bg-white/50 p-6 transition-colors hover:border-sage-deep">
+                      <h3 className="font-display text-3xl font-semibold leading-tight">
+                        <Link
+                          href={`/guides/${guide.slug}`}
+                          className="decoration-sage decoration-2 underline-offset-4 after:absolute after:inset-0 group-hover:text-sage-deep group-hover:underline"
+                        >
+                          {guide.title}
+                        </Link>
+                      </h3>
+                      <p className="mt-3 flex-1 text-ink-soft">{guide.description}</p>
+                      <p className="mt-4 text-xs font-medium uppercase tracking-[0.2em] text-sage-deep">
+                        {guide.status === "draft"
+                          ? "Coming soon"
+                          : `${readingMinutes(guide)} min read`}
+                      </p>
+                    </article>
+                  </li>
+                ))}
+              </ul>
+            </section>
           ))}
-        </ul>
+        </div>
       </Container>
       <BreadcrumbJsonLd trail={[{ name: "Guides", path: "/guides" }]} />
     </>
